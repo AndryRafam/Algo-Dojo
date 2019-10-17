@@ -19,7 +19,7 @@ class Solution{
         string temp = "";
         vector<string> str;
         for(auto i = 0; i < s.length(); ++i){
-            for(auto j = 1; j <= s.length(); ++j){
+            for(auto j = 1; j <= s.length()-i; ++j){
                 temp = s.substr(i,j);
                 if(palindrome(temp))
                     str.emplace_back(temp);
