@@ -1,5 +1,5 @@
-# Training_Room
+# ALGO_ROOM
 
-For practice and for fun
+For practice and for fun. Exercises comes from various sources, such as LeetCode, Cracking the coding interview (Gayle Laackman Mcdowell) ...
 
-I DO NOT MAKE ANY CLAIM THAT SOLUTION ARE OPTIMAL
+# I make no claim that solutions are optimal.
