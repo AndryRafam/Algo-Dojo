@@ -21,6 +21,8 @@ class Solution{
                             L[i][j][k] = L[i-1][j-1][k-1]+1;
                             result = max(result,L[i][j][k]);
                         }
+                        else
+                            L[i][j][k]=0;
                     }
                 }
             }
