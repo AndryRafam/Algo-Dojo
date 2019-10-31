@@ -16,7 +16,7 @@ class Solution{
         static void palindrome_substr(string &s){
             string temp = "";
             for(auto i = 0; i < s.length(); ++i){
-                for(auto len = 1; len < s.length(); ++len){
+                for(auto len = 1; len <= s.length()-i; ++len){
                     temp = s.substr(i,len);
                     if(palindrome(temp))
                         cout << temp << " ";
