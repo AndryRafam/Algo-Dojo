@@ -31,6 +31,6 @@ class Solution{
 	}
 };
 int main(){
-	string test = "xoxoxbab";
+	string test = "xoxoxbab"; // 5 xoxox
 	Solution::longestPalindrome(test);
 }
