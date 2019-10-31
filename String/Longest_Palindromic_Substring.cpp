@@ -7,14 +7,10 @@ class Solution{
 	public:
 	static bool isPalindrome(string &s){
 		int n = s.length();
-		unordered_map<char,int> hash;
-		for(auto x = 0; x < n/2; ++x){
-			hash[s[x]]++;
-			hash[s[n-1-x]]--;
-		}
-		for(auto &i : hash)
-			if(i.second!=0)
+		for(auto i = 0; i < n/2; ++i){
+			if(s[i]!=s[n-1-i])
 				return false;
+		}
 		return true;
 	}
 	static void longestPalindrome(string &str){
@@ -35,6 +31,6 @@ class Solution{
 	}
 };
 int main(){
-	string test = "xoxobab";
+	string test = "xoxoxbab";
 	Solution::longestPalindrome(test);
 }
