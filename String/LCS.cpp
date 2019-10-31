@@ -19,7 +19,7 @@ class Solution{
                         else if(s1[i-1]==s2[j-1] && s1[i-1]==s3[k-1])
                             L[i][j][k] = L[i-1][j-1][k-1]+1;
                         else
-                            L[i][j][k] = max(max(L[i-1][j][k],L[i][j-1][k]),L[i][j][k-1]);
+                            L[i][j][k] = max({L[i-1][j][k],L[i][j-1][k],L[i][j][k-1]});
                     }
                 }
             }
