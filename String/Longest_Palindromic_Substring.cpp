@@ -31,6 +31,7 @@ class Solution{
 	}
 };
 int main(){
+	ios_base::sync_with_stdio(false);
 	string test = "xoxoxbab"; // 5 xoxox
 	Solution::longestPalindrome(test);
 }
