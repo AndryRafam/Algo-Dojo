@@ -1,37 +1,40 @@
-// Longest palindromic substring - Brute force approach
+// Longest palindromic substring - O(N²) complexity
 
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution{
-    public:
-    static bool compare(string &s1, string &s2){ // Function to compare the string length
-        return s1.size() < s2.size();
-    }
-    static bool palindrome(string &s){
-        int n = s.length();
-        for(auto i = 0; i < n/2; ++i)
-            if(s[i]!=s[n-1-i])
-                return false;
-        return true;
-    }
-    static void longest_palindrome(string &s){
-        string temp = "";
-        vector<string> str;
-        for(auto i = 0; i < s.length(); ++i){
-            for(auto j = 1; j <= s.length()-i; ++j){
-                temp = s.substr(i,j);
-                if(palindrome(temp))
-                    str.emplace_back(temp);
-            }
-        }
-        sort(str.begin(),str.end(), compare);
-        cout << str[str.size()-1];
-    }
+	public:
+	static bool isPalindrome(string &s){
+		int n = s.length();
+		unordered_map<char,int> hash;
+		for(auto x = 0; x < n/2; ++x){
+			hash[s[x]]++;
+			hash[s[n-1-x]]--;
+		}
+		for(auto &i : hash)
+			if(i.second!=0)
+				return false;
+		return true;
+	}
+	static void longestPalindrome(string &str){
+		vector<string> res;
+		string temp = "";
+		int max = 0;
+		for(auto i = 0; i < str.length(); ++i){
+			for(auto j = 1; j <= str.length()-i; j++){
+				temp=str.substr(i,j);
+				if(isPalindrome(temp) && max < temp.length()){
+					max = temp.length();
+					res.emplace_back(temp);
+				}
+			}
+		}
+		cout << max << "\n";
+		cout << res[res.size()-1];
+	}
 };
-
 int main(){
-    ios_base::sync_with_stdio(false);
-    string test = "xabax"; // result is "xabax"
-    Solution::longest_palindrome(test);
+	string test = "xoxobab";
+	Solution::longestPalindrome(test);
 }
