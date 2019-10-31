@@ -29,7 +29,7 @@ class Solution{
 
 int main(){
     ios_base::sync_with_stdio(false);
-    string test = "aab";
+    string test = "xobob"; // x o obo b bob o b
     for(auto &x : Solution::palindrome_substr(test))
         cout << x << " ";
 }
