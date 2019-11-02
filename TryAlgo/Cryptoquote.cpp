@@ -1,4 +1,6 @@
-// Cryptoquote: TryAlgo Problem - O(N^2) Complexity
+// Cryptoquote: TryAlgo Problem - O(N*M) Complexity
+// N length of encrypt message
+// M size of mapping
 
 #include <bits/stdc++.h>
 using namespace std;
