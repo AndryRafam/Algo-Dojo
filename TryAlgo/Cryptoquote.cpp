@@ -9,7 +9,7 @@ class Solution{
         string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
         vector<pair<char,char>> mapping;
         string result = "";
-        for(auto i = 0; i < 27; ++i)
+        for(auto i = 0; i < alphabet.size(); ++i)
             mapping.emplace_back(alphabet[i],key[i]);
         for(auto x = 0; x < encrypt.size(); ++x){
             for(auto &itr : mapping)
