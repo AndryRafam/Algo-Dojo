@@ -56,13 +56,17 @@ int main(){
 	TreeNode *root = NULL;
 	root = TreeNode::insert(root,15);
 	vector<int> input = {6,7,3,2,4,13,9,18,17,20};
+	
 	for(auto &x : input)
-        TreeNode::insert(root,x);
-    TreeNode::InorderTreeWalk(root); puts("\n");
-    cout << "Minimum element of the BST → " << TreeNode::minimum(root); puts("\n");
-    cout << "Maximum element of the BST → " << TreeNode::maximum(root); puts("\n");
-    if(TreeNode::find(root,42))
-    	puts("OK");
-    else
-    	puts("KO");
+     		TreeNode::insert(root,x);
+	
+    	TreeNode::InorderTreeWalk(root); puts("\n");
+    	
+	cout << "Minimum element of the BST → " << TreeNode::minimum(root); puts("\n");
+    	cout << "Maximum element of the BST → " << TreeNode::maximum(root); puts("\n");
+    	
+	if(TreeNode::find(root,42))
+    		puts("OK");
+    	else
+    		puts("KO");
 }
