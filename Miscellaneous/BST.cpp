@@ -8,8 +8,8 @@ class TreeNode{
 		int val;
 		TreeNode *left;
 		TreeNode *right;
-		TreeNode(int x): val(x), left(NULL), right(NULL) {}
 	public:
+		TreeNode(int x): val(x), left(NULL), right(NULL) {}
 		static TreeNode *createNode(int value){
 			TreeNode *temp = new TreeNode(value);
 			temp->val = value;
