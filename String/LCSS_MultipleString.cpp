@@ -13,9 +13,10 @@ string findStem(vector<string> arr){
 		for(auto j = 1; j <= arr[0].length()-i; ++j){
 			s = arr[0].substr(i,j);
 			auto k = 1;
-			for(k = 1; k < arr.size(); ++k){
+			while(k < arr.size()){
 				if(arr[k].find(s)==string::npos)
 					break;
+				k++;
 			}
 			if(k==arr.size())
 				res.emplace_back(s);
