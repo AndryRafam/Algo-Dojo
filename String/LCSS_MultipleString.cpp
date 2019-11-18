@@ -29,7 +29,7 @@ string findStem(vector<string> arr){
 }
 int main(){
 	ios_base::sync_with_stdio(0);
-	vector<string> test1 = {"gracefully","graceful","grace","disgraceful"};
+	vector<string> test1 = {"gracefully","graceful","disgrace","disgraceful"};
 	vector<string> test2 = {"grace","sd","test"};
   
 	cout << findStem(test1); // grace
