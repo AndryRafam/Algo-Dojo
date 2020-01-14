@@ -15,7 +15,7 @@ class Solution{
         for(auto &i : result)
             s.insert(i);
         for(auto &x : s)
-        	cout << x << " ";
+            cout << x << " ";
     }
 };
 int main(){
