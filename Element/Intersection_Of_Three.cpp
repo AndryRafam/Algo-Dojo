@@ -11,11 +11,11 @@ class Solution{
             if(binary_search(v1.begin(),v1.end(),v3[i]) && binary_search(v2.begin(),v2.end(),v3[i]))
                     result.emplace_back(v3[i]);
         }
-        unordered_map<int,int> hash;
+        unordered_set<int> s;
         for(auto &i : result)
-            hash[i]++;
-        for(auto &x : hash)
-            cout << x.first << " ";
+            s.insert(i);
+        for(auto &x : s)
+        	cout << x << " ";
     }
 };
 int main(){
