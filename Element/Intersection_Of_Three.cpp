@@ -6,16 +6,13 @@ using namespace std;
 class Solution{
     public:
     static void triple_intersection(vector<int> &v1,vector<int> &v2, vector<int> &v3){
-        vector<int> result;
+        unordered_set<int> result;
         for(auto i = 0; i < v3.size(); ++i){
             if(binary_search(v1.begin(),v1.end(),v3[i]) && binary_search(v2.begin(),v2.end(),v3[i]))
-                    result.emplace_back(v3[i]);
+                    result.insert(v3[i]);
         }
-        unordered_set<int> s;
-        for(auto &i : result)
-            s.insert(i);
-        for(auto &x : s)
-            cout << x << " ";
+        for(auto x : result)
+        	cout << x << " ";
     }
 };
 int main(){
