@@ -19,6 +19,8 @@ class solution{
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
+    int N = 2;
     int N = 3;
-    cout << solution::square_number(N);
+    cout << solution::square_number(N); // 14
+    cout << solution::square_number(N); // 5
 }
