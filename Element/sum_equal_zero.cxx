@@ -9,7 +9,7 @@ class Solution{
 	static bool sum_zero(vector<int> &arr){
 		for (auto i = 0; i < arr.size(); i++){
 			int sum = 0;
-			for(auto j = i; j < arr.size(); j++){
+			for(auto j = i+1; j < arr.size(); j++){
 				sum += arr[j];
 				if(sum == 0)
 					return true;
