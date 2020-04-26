@@ -1,4 +1,4 @@
-// Subarray which sum equal zero ~ O(N) time complexity
+// Subarray which sum equal zero ~ O(N²) time complexity
 
 #include <bits/stdc++.h>
 using namespace std;
