@@ -1,3 +1,6 @@
+# Longest Common Subsequence DP (Dynamic Programming)
+# O(M*N) complexity
+
 class Solution(object):
     def LCS(self,s1:str,s2:str)->int:
         self.m = len(s1)
@@ -19,4 +22,4 @@ if __name__=='__main__':
     text1 = "GeekforGeek"
     text2 = "Geek"
     s = Solution()
-    print(s.LCS(text1,text2))
+    print(s.LCS(text1,text2)) # 4
