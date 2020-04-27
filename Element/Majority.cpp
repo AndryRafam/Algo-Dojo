@@ -19,7 +19,7 @@ class Solution{
 int main(){
 	vector<int> v = {1,2,5,9,5,5,5};
 	vector<int> test = {1,5,3,2,2,4,7,8,9,8,9};
-	printf("%d\n",Solution::majority(v));
-	printf("%d",Solution::majority(test));
+	printf("%d\n",Solution::majority(v)); // 5
+	printf("%d",Solution::majority(test)); // -1
 	return 0;
 }
