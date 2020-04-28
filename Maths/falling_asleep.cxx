@@ -9,7 +9,7 @@ class Solution{
         int count = 0;
         for(auto i = 0; i < pairvec.size(); i++){
             if(pairvec[i].first == X){
-                for(auto j = i+1; j < pairvec[j].second; j++)
+                for(auto j = i+1; j < pairvec.size(); j++)
                     count+=pairvec[j].second;
             }
         }
