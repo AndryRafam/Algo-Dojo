@@ -4,8 +4,7 @@ class Solution(object):
     def kadane(self,arr:list)->int:
         self.best = 0
         self.sum = 0
-        self.n = len(arr)
-        for i in range(self.n):
+        for i in range(len(arr)):
             self.sum = max(arr[i],self.sum+arr[i])
             self.best = max(self.best,self.sum)
         return self.best
