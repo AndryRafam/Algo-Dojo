@@ -1,4 +1,4 @@
-# AtCoder Dwango Programming Contest (Problem A)
+# AtCoder Dwango Programming Contest 6th (Problem A)
 
 class Solution(object):
     def music(self,s_arr:list,k_arr:list, X:str, N:int)->int:
