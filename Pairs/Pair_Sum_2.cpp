@@ -16,7 +16,7 @@ class Answer{
 };
 
 int main(){
-    vector<int> tab1 = {1, 2, 3, 7, 5, 4 };
+    vector<int> tab1 = {1, 2, 3, 7, 5, 4, 8 };
     vector<int> tab2 = {0, 7, 4, 3, 2, 1 };
-    Answer::find_pairs(tab1,tab2,8);
+    Answer::find_pairs(tab1,tab2,8); // (8,0) (1,7) (4,4) (5,3) (7,1)
 }
