@@ -28,11 +28,11 @@ class Solution{
 int main(){
     ios_base::sync_with_stdio(0);
     cout.tie(0); cin.tie(0);
-    string source = "bcogtadsjofisdhklasdj";
+    string source = "bcogtadsjofisdhklasdej";
     vector<string> words = {"book","code","tag"};
     for(auto &x : words){
         if(Solution::LCS(source,x)==x.length())
-            cout << x << " "; // book
+            cout << x << " "; // book, code
     }
     return 0;
 }
