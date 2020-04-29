@@ -1,5 +1,5 @@
 /*Given two unsorted arrays, find all pairs whose sum is a given number
-Complexity: O(n^2)*/
+Complexity: O(N*M)*/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,7 +17,7 @@ class Answer{
 };
 
 int main(){
-    vector<int> arr1 = {1, 2, 3, 7, 5, 4 };
+    vector<int> arr1 = {1, 2, 3, 7, 5, 4, 8};
     vector<int> arr2 = {0, 7, 4, 3, 2, 1 };
-    Answer::find_pairs(arr1,arr2,8);
+    Answer::find_pairs(arr1,arr2,8); // (1,7) (7,1) (5,3) (4,4) (8,0)
 }
