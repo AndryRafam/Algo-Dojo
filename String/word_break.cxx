@@ -18,9 +18,7 @@ bool LCS(string &a, string &b){
                 dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
         }
     }
-    if(dp[m][n]==b.size())
-        return true;
-    return false;
+    return dp[m][n];
 }
 
 int main(){
