@@ -30,12 +30,8 @@ int main(){
         string res = dict[x];
         for(auto y = x+1; y < dict.size(); y++){
             res+=dict[y];
-            if(LCS(s,dict[x])&&LCS(s,dict[y])&&res.length()==s.length()){
-                cout << "True";
+            cout << (LCS(s,dict[x])&&LCS(s,dict[y])&&res.length()==s.length() ? "True":"False");
                 return 0;
-            }
         }
     }
-    cout << "False";
-    return 0;
 }
