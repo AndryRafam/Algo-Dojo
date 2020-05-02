@@ -6,8 +6,7 @@ class Solution(object):
         self.rev = str()
         self.rev = reversed(s)
         return list(s) == list(self.rev)
-
-
+    
     def longest_palindrome(self,s:str)->str:
         self.arr = []
         self.temp = str()
