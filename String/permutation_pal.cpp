@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution{
 	public:
-	static bool permut(string &s){
+	static void permut(string &s){
 		unordered_map<char,int> hash;
 		int odd_count = 0;
 		for(auto &x : s)
@@ -19,13 +19,11 @@ class Solution{
 			if(itr.second%2!=0)
 				odd_count+=1;
 		}
-		if(odd_count > 1)
-			return false;
-		return true;
+		cout << (odd_count > 1 ? 0:1);
 	}
 };
 int main(){
 	ios_base::sync_with_stdio(0);
 	string test = "ivicc"; // True
-	cout << Solution::permut(test);
+	Solution::permut(test);
 }
