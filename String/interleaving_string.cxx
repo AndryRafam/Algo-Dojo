@@ -20,9 +20,7 @@ class Solution{
 					dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
 			}
 		}
-		if(dp[m][n]==b.size())
-			return true;
-		return false;
+		return (dp[m][n]==b.size() ? true:false);
 	}
 };
 int main(){
@@ -34,9 +32,5 @@ int main(){
 	int m = s1.length();
 	int n = s2.length();
 	int p = s3.length();
-	if(Solution::LCS(s3,s1)&&Solution::LCS(s3,s2)&&p==m+n) // True
-		cout << "True";
-	else
-		cout << "False";
-	return 0;
+	cout << (Solution::LCS(s3,s1)&&Solution::LCS(s3,s2)&&p==m+n ? "True":"False"); // True
 }
