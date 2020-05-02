@@ -1,6 +1,5 @@
 // Find the longest common substring of multiple string
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
