@@ -13,7 +13,9 @@ class Solution{
         for(auto i = 0; i < s.length(); ++i)
             hash[s[i]]++;
         for(auto &x : hash)
-            return (x.second != 1 ? false:true);
+            if (x.second != 1)
+                return false;
+        return true;
     }
     static void longestSubstring(string &s){
         string temp = "";
