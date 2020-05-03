@@ -19,7 +19,7 @@ class Solution{
 			if(itr.second%2!=0)
 				odd_count+=1;
 		}
-		cout << (odd_count > 1 ? 0:1);
+		cout << (odd_count > 1 ? "False":"True");
 	}
 };
 int main(){
