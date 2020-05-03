@@ -10,8 +10,10 @@ class Answer{
             for(auto i = 0; i < str.length(); i++)
                 hash[str[i]]++;
             for(auto &x : hash){
-                return (x.second != 1 ? false:true); 
+                if (x.second != 1)
+                    return false;
             }
+            return true;
         }
 };
 
