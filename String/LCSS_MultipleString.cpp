@@ -23,17 +23,14 @@ string findStem(vector<string> &arr){
                 res.emplace_back(s);
         }
      }
-     if(res.empty())
-        return "KO";
-     else
-        return *max_element(res.begin(),res.end(),compare);
+     return (res.size()==0 ? "KO":*max_element(res.begin(),res.end(),compare)); // if res is empty, return KO. Else, return the longest common substring
 }
 
 int main(){
 	ios_base::sync_with_stdio(0);
 	vector<string> test1 = {"gracefully","graceful","disgrace","disgraceful"};
 	vector<string> test2 = {"grace","sd","test"};
-  
+
 	cout << findStem(test1); // grace
 	cout << "\n";
 	cout << findStem(test2); // KO
