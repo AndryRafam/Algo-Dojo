@@ -9,8 +9,7 @@ class Solution{
         if(s.size()==0)
             return true;
         for(auto i = 1; i <= s.size(); i++){
-			string pref = s.substr(0,i);
-			if(find(dict.begin(),dict.end(),pref) != dict.end() && word_break(s.substr(i),dict))
+			if(find(dict.begin(),dict.end(),s.substr(0,i)) != dict.end() && word_break(s.substr(i),dict))
 				return true;
         }
         return false;
