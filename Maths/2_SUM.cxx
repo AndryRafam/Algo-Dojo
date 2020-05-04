@@ -15,7 +15,7 @@ class Solution{
 		sort(arr.begin(),arr.end());
 		int left = 0;
 		int right = n-1;
-        vector<pair<int,int>> tab;
+        	vector<pair<int,int>> tab;
 		while(left < right){
 			if(arr[left]+arr[right]==x){
 				tab.emplace_back(arr[left],arr[right]);
