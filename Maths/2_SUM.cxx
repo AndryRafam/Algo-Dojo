@@ -36,7 +36,7 @@ int main(){
 	cout.tie(0);
 	vector<int> test = {10,50,20,35,80,78};
 	int target = 130;
-	for(auto x : Solution::two_sum(test,target))
-		cout << x.first << " " << x.second;
+	for(auto x : Solution::two_sum(test,target)) 
+		cout << x.first << " " << x.second; // 50 80
 }
 
