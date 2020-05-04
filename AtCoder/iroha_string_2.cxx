@@ -22,7 +22,7 @@ int main(){
 				res.emplace_back(tab[i]+tab[j]);
 		}
 	}
-	cout << *min_element(res.begin(),res.end());
+	cout << (res.empty() ? "Empty":*min_element(res.begin(),res.end()));
 	return 0;
 }
 
