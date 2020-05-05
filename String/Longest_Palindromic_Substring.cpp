@@ -1,4 +1,4 @@
-// Longest palindromic substring - O(N²) complexity
+// Longest palindromic substring - O(N³) complexity
 
 #include <bits/stdc++.h>
 using namespace std;
