@@ -1,4 +1,4 @@
-# Longest palindromci substring - O(N²) complexity
+# Longest palindromci substring - O(N³) complexity
 
 
 class Solution(object):
