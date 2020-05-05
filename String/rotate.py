@@ -1,4 +1,4 @@
-# Rotational point in a dictionnary
+# Rotational point in a dictionnary -O(N) complexity
 
 class Solution(object):
     def rotation(self,arr:str):
