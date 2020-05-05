@@ -1,7 +1,7 @@
 # Rotational point in a dictionnary -O(N) complexity
 
 class Solution(object):
-    def rotation(self,arr:str):
+    def rotation(self,arr:list):
         self.i = 0
         while(arr[self.i+1]>=arr[self.i]):
             self.i+=1
