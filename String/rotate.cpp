@@ -7,14 +7,11 @@ class Solution{
 	public:
 	static vector<pair<int,string>> rotation(vector<string> &arr){
         vector<pair<int,string>> rot;
-		for(auto i = 0; i < arr.size(); i++){
-			if(arr[i+1]>=arr[i])
-				continue;
-			else{
-				rot.emplace_back(i+1,arr[i+1]);
-                break;
-            }
+        int i = 0;
+        while(arr[i+1]>=arr[i]){
+			i++;
 		}
+		rot.emplace_back(i+1,arr[i+1]);
 		return rot;
 	}
 };
@@ -24,16 +21,16 @@ int main(void){
 	cout.tie(0);
 	vector<string> test = {
 	"ptolemaic",
-    "retrograde",
-    "supplant",
-    "undulate",
-    "xenoepist",
-    "asymptote",  // <-- rotates here!
-    "babka",
-    "banoffee",
-    "engender",
-    "karpatka",
-    "othellolagkage"};
+    	"retrograde",
+    	"supplant",
+    	"undulate",
+    	"xenoepist",
+    	"asymptote",  // <-- rotates here!
+    	"babka",
+    	"banoffee",
+    	"engender",
+    	"karpatka",
+    	"othellolagkage"};
 
     for(auto &x : Solution::rotation(test))
         cout << x.second << " → " << x.first;
