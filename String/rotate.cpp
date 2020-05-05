@@ -1,4 +1,4 @@
-// Rotational point in a dictionnary
+// Rotational point in a dictionnary -O(N) complexity
 
 #include <bits/stdc++.h>
 using namespace std;
