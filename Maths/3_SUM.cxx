@@ -1,7 +1,7 @@
 /* 3 SUM problem
  * 
  * Complexity: O(N²) if the array is already sorted
- *             O(N²logN) if the array is not sorted (we must sort the array first)*/
+ *             O(N²+NlogN) if the array is not sorted (we must sort the array first)*/
  
 // In this example, the array is already sorted (O(N²)) complexity
  
