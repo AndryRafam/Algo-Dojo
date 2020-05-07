@@ -1,32 +1,23 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <stack>
+// Max element in stack O(N) complexity
 
-class Max{
-public:
-  Max();
-  void getMax(std::stack<int> s, std::vector<int> v);
-  ~Max();
-};
+#include <bits/stdc++.h>
+using namespace std;
 
-Max::Max(){}
-
-void Max::getMax(std::stack<int> s, std::vector<int> v){
-  while(!s.empty()){
-    v.push_back(s.top());
-    s.pop();
-  }
-  sort(v.begin(),v.end());
-  std::cout << "Max stack element is > " << v[v.size()-1] << std::endl;
-}
-
-Max::~Max(){}
-
-int main(void){
-  Max *M;
-  std::stack<int> s;
-  std::vector<int> v;
-  for (auto i = 0; i < 5; i++){s.push(i);}
-  M->getMax(s,v);
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+	stack<int> s;
+	int k,n; cin >> n; // stack size (n=4)
+	for(auto i = 0; i < n; i++){
+		cin >> k; // 1 4 2 3
+		s.push(k);
+	}
+	int max = s.top();
+	while(!s.empty()){
+		if(max <= s.top())
+			max = s.top();
+		s.pop();
+	}
+	cout << max; // 4
+	return 0;
 }
