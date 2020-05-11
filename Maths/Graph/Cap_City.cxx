@@ -75,4 +75,5 @@ int main(){
 	for(auto x : s)
 		cout << x << " ";
 	cout << "\n";
+	return 0;
 }
