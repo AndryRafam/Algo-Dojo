@@ -8,6 +8,7 @@ using namespace std;
 list<int> adj[N];
 bool visited[N];
 bool color[N]; // blue or red
+bool bipartite = true;
 
 class Solution{
 	public:
@@ -17,10 +18,13 @@ class Solution{
 		for(auto u : adj[s]){
 			if(!visited[u]&&!color[u])
 				dfs_bip(u);
-			else if(color[u]==true) // if adj[s][nodes] is same color as s, bipartiteness is false
-				return false;
+			else if(color[u]==true){ // if adj[s][nodes] is same color as s, bipartiteness is false
+				bipartite=false;
+				return bipartite;
+			}
 		}
-		return true;
+		bipartite = true;
+		return bipartite;
 	}
 	static void addEdge(int x, int y){
 		//directed graph
@@ -50,8 +54,12 @@ int main(){
 	
 	for(auto i = 1; i <= nodes; i++){
 		if(!visited[i]){
-			cout << Solution::dfs_bip(i);
+			if(Solution::dfs_bip(i)==false){
+				cout << "NO";
+				return 0;
+			}
 		}
 	}
+	cout << "YES";
 	return 0;
 }
