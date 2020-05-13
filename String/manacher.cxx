@@ -25,6 +25,8 @@ void manacher(string s){
             c = i;
             r = i+P[i];
         }
+    }
+    for(int i = 1; i < n-1; i++){
         if(P[i] > maxLen){
             maxLen = P[i];
             centerIndex = i;
