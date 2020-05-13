@@ -5,8 +5,8 @@ using namespace std;
 
 class Solution{
     public:
-    static bool compare(string &s1,string &s2){
-        return s1.length() < s2.length();
+    static bool compare(string &s1, string &s2){
+        return s1.size() < s2.size();
     }
     static string LCS(string &s1, string &s2){
         int m = s1.length();
@@ -47,11 +47,25 @@ class Solution{
     }
     static string All_LCS(vector<string> &arr){
         vector<string> res;
-        for(auto i = 0; i < arr.size(); ++i){
-            for(auto j = i+1; j < arr.size(); ++j){
+        for(auto i = 0; i < (int)arr.size(); ++i){
+            for(auto j = i+1; j < (int)arr.size(); ++j){
                 res.emplace_back(LCS(arr[i],arr[j]));
             }
         }
-        return *min_element(res.begin(),res.end(),compare); 
+        return *min_element(res.begin(),res.end(),compare);
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    vector<string> arr;
+    string s;
+    int n; cin >> n;
+    for(auto i = 0; i < n; i++){
+        cin >> s;
+        arr.emplace_back(s);
+    }
+    cout << Solution::All_LCS(arr) << "\n";
+    return 0;
+}
