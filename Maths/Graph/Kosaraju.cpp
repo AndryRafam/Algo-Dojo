@@ -33,6 +33,33 @@ class Solution{
         }
         return;
     }
+    static void addEdge(int x, int y){
+        adj[x].emplace_back(y);
+        gr[y].emplace_back(x);
+        return;
+    }
+    static void kosaraju(int nodes){
+        visited.assign(nodes,false);
+        for(auto i = 1; i <= nodes; i++){
+            if(!visited[i])
+                dfs1(i);
+        }
+        visited.assign(nodes,false);
+        int count = 0;
+        for(auto i = 1; i <= nodes; i++){
+            int s = order[nodes-i];
+            if(!visited[s]){
+                dfs2(s);
+                for(auto j : comps)
+                    cout << j << " ";
+                cout << endl;
+                count++;
+                comps.clear();
+            }
+        }
+        cout << "Number of connected component -> " << count << endl;
+        return;
+    }
 };
 
 int main(){
@@ -42,29 +69,8 @@ int main(){
     cin >> nodes >> edges;
     for(auto i = 1; i <= edges; i++){
         cin >> x >> y;
-        adj[x].emplace_back(y);
-        gr[y].emplace_back(x);
+        Solution::addEdge(x,y);
     }
-    
-    visited.assign(nodes,false);
-    for(auto i = 1; i <= nodes; ++i){
-        if(!visited[i])
-            Solution::dfs1(i);
-    }
-    
-    visited.assign(nodes,false);
-    int count = 0;
-    for(auto i = 1; i <= nodes; ++i){
-        int s = order[nodes-i];
-        if(!visited[s]){
-            Solution::dfs2(s);
-            for(auto j : comps)
-                cout << j << " ";
-            cout << endl;
-            count++;
-            comps.clear();
-        }
-    }
-    cout << "Strong connected component -> " << count << endl;
+    Solution::kosaraju(nodes);
     return 0;
 }
