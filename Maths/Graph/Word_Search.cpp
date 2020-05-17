@@ -21,6 +21,7 @@ class Solution{
 			return false;
 		if(board[i][j]==word[k]){
 			char temp = board[i][j];
+			board[i][j]='$';
 			if(k==(int)word.size()-1){
 				return true;
 			}
@@ -28,7 +29,7 @@ class Solution{
 					|| dfs(board,word,i,j-1,k+1) || dfs(board,word,i,j+1,k+1)){
 					return true;
 			}
-			swap(board[i][j],temp);
+			board[i][j]=temp;
 		}
 		return false;
 	}
