@@ -37,9 +37,7 @@ class Solution{
 int main(){
 	ios_base::sync_with_stdio(0);
 	cout.tie(0);
-	vector<vector<char>> board = {{'a','b','c','e'},
-								  {'s','f','c','s'},
-								  {'a','d','e','e'}};
+	vector<vector<char>> board = {{'a','b','c','e'},{'s','f','c','s'},{'a','d','e','e'}};
 	string word = "abcced";
 	cout << Solution::exist(board,word) << endl;
 	return 0;
