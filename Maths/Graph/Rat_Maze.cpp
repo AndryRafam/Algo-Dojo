@@ -23,6 +23,7 @@ class Solution{
 		if(i<0 || i>=N || j<0 || j>=M || maze[i][j]==0)
 			return false;
 		if(maze[i][j]==1){
+			maze[i][j]='$'; // mark as visited so we can't visit it anymore
 			if(k==(N-1)+(M-1)) // bottom right corner
 				return true;
 			else if(dfs(maze,i+1,j,k+1) || dfs(maze,i,j+1,k+1)){
