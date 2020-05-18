@@ -38,10 +38,10 @@ int main(){
 	ios_base::sync_with_stdio(0);
 	cout.tie(0);
 	vector<vector<int>> maze = {{1, 0, 0, 0, 0},
-								{1, 1, 0, 1, 0},
-								{0, 1, 1, 1, 0},
-								{0, 1, 1, 0, 0},
-								{1, 0, 1, 1, 1}};
+				    {1, 1, 0, 1, 0},
+				    {0, 1, 1, 1, 0},
+				    {0, 1, 1, 0, 0},
+				    {1, 0, 1, 1, 1}};
 								
 	cout << (Solution::exist(maze)==1 ? "True":"False") << endl; // True for this example
 	return 0;
