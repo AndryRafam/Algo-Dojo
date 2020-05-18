@@ -37,8 +37,8 @@ int main(){
 								{1, 1, 0, 1, 1, 1},
 								{0, 1, 1, 1, 0, 1},
 								{0, 0, 1, 0, 1, 1},
-								{0, 1, 0, 1, 0, 1},
-								{0, 1, 1, 1, 0, 1}}; // True in this example
+								{0, 1, 0, 1, 1, 0},
+								{0, 1, 1, 1, 1, 1}}; // True in this example
 								
 	cout << (Solution::path(maze,1,0)==1 ? "True":"False") << endl; // Start from second line, first column
 	return 0;
