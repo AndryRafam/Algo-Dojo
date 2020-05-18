@@ -41,7 +41,8 @@ int main(){
 				    {1, 1, 0, 1, 0},
 				    {0, 1, 1, 1, 0},
 				    {0, 1, 1, 0, 0},
-				    {1, 0, 1, 1, 1}};
+				    {1, 0, 1, 1, 1},
+				    {0, 0, 0, 0, 1}};
 								
 	cout << (Solution::exist(maze)==1 ? "True":"False") << endl; // True for this example
 	return 0;
