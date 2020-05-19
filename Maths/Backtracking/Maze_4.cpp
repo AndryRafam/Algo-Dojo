@@ -36,13 +36,13 @@ int main(){
 	ios_base::sync_with_stdio(0);
 	cout.tie(0);
 	vector<vector<int>> maze = {{2, 0, 0, 0, 0, 0},
-								{1, 1, 0, 1, 1, 1},
-								{0, 1, 1, 1, 0, 1},
-								{0, 0, 1, 0, 1, 1},
-								{2, 1, 0, 1, 1, 0},
-								{0, 1, 0, 1, 0, 0},
-								{0, 1, 0, 1, 1, 1}}; // 2 at position (0,0) leads to the target
-								                     // 2 at position (4,0) doesn't lead to the target
+				    {1, 1, 0, 1, 1, 1},
+				    {0, 1, 1, 1, 0, 1},
+				    {0, 0, 1, 0, 1, 1},
+				    {2, 1, 0, 1, 1, 0},
+				    {0, 1, 0, 1, 0, 0},
+				    {0, 1, 0, 1, 1, 1}}; // 2 at position (0,0) leads to the target
+				                         // 2 at position (4,0) doesn't lead to the target
 								
 	int N = maze.size();
 	int M = maze[0].size();
