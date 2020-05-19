@@ -1,4 +1,4 @@
-/* Maze problem N°4: Starting from multiple point of the maze, check which one of them leads to the target.
+/* Maze problem N°4: Let be a maze with multiple entry, check which one of them leads to the target.
  * 
  * The target is at the bottom right corner. */
 
