@@ -55,7 +55,7 @@ int main(){
 			if(maze[i][j]=='S'){
 				Sx = i; Sy = j;
 			}
-			else if(maze[i][j]='T'){
+			else if(maze[i][j]=='T'){
 				Tx = i; Ty = j;
 			}
 		}
