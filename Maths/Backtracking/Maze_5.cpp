@@ -55,11 +55,7 @@ int main(){
 			if(maze[i][j]=='S'){
 				Sx = i; Sy = j;
 			}
-		}
-	}
-	for(auto i(0); i!=N; i++){
-		for(auto j(0); j!=M; j++){
-			if(maze[i][j]=='T'){
+			else if(maze[i][j]='T'){
 				Tx = i; Ty = j;
 			}
 		}
