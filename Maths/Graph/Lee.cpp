@@ -10,7 +10,7 @@ struct Point{
 	int x, y;
 };
 
-struct queueNode{
+struct Node{
 	Point pt;
 	int dist;
 };
@@ -25,21 +25,21 @@ bool isValid(vector<vector<int>> &maze, int row, int col){
 
 int bfs(vector<vector<int>> &maze, Point src, Point dest){
 		
-	queue<queueNode> q;
+	queue<Node> q;
 	q.push({src,0});
 	
 	while(!q.empty()){
-		queueNode curr = q.front();
+		Node curr = q.front();
 		q.pop();
 		
 		if(curr.pt.x == dest.x && curr.pt.y == dest.y){ // current coordinates are equal to destination coordinates
 			return curr.dist;
 		}
 				
-		for(auto i(0); i!=4; i++){ // proceed to adjacency nodes
-			if(isValid(maze,curr.pt.x+row[i],curr.pt.y+col[i])){
-				maze[curr.pt.x+row[i]][curr.pt.y+col[i]]='#'; // mark as visited
-				q.push({{curr.pt.x+row[i],curr.pt.y+col[i]},curr.dist+1});
+		for(auto k(0); k!=4; k++){ // proceed to adjacency nodes
+			if(isValid(maze,curr.pt.x+row[k],curr.pt.y+col[k])){
+				maze[curr.pt.x+row[k]][curr.pt.y+col[k]]='#'; // mark as visited so we can't visit anymore
+				q.push({curr.pt.x+row[k],curr.pt.y+col[k],curr.dist+1});
 			}
 		}
 	}
@@ -62,6 +62,6 @@ int main(){
 	Point src = {0,0};
 	Point dest = {8,9};
 	
-	cout << bfs(maze,src,dest) << endl; // 17
+	cout << bfs(maze,src,dest) << endl;
 	return 0;
 }
