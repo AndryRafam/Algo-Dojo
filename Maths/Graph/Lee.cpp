@@ -62,6 +62,6 @@ int main(){
 	Point src = {0,0};
 	Point dest = {8,9};
 	
-	cout << bfs(maze,src,dest) << endl; // 21
+	cout << bfs(maze,src,dest) << endl; // 17
 	return 0;
 }
