@@ -29,7 +29,7 @@ void sort_vec(vector<int> arr){
 }
 
 int main(){
-    vector<int> arr = {0,1,1,0,1,2,1,2,0,0,0,1};
+    vector<int> arr = {0,1,2,2,1,0,0,2,0,1,1,0};
     sort_vec(arr);
     return 0;
 }
