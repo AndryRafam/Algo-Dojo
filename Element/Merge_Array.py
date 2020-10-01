@@ -26,12 +26,13 @@ def merge(a,b,res,n,m):
 		j+=1
 		k+=1
 
-a=[10,5,15]
-b=[20,3,2,12]
-n = len(a)
-m = len(b)
-res=[0 for i in range(n+m)]
-merge(a,b,res,n,m)
+if __name__=='__main__':
+	a=[10,5,15]
+	b=[20,3,2,12]
+	n = len(a)
+	m = len(b)
+	res=[0 for i in range(n+m)]
+	merge(a,b,res,n,m)
 
-for i in range(n+m):
-	print (res[i],end=" ")
+	for i in range(n+m):
+		print (res[i],end=" ")
