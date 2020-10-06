@@ -19,10 +19,10 @@ class Solution{
         
         vector<long long> h(n+1,0);
         for(auto i = 0; i < n; i++)
-            h[i+1] = (h[i]+(t[i]-'a'+1)*p_pow[i])%mod;
+            h[i+1] = (h[i]+(t[i]-'a'+1)*p_pow[i])%mod; // polynomial rolling hash function of t
         long long h_s = 0;
         for(auto i = 0; i < m; i++)
-            h_s = (h_s+(s[i]-'a'+1)*p_pow[i])%mod;
+            h_s = (h_s+(s[i]-'a'+1)*p_pow[i])%mod; // polynomial rolling hash function of s
         
         vector<int> occur;
         for(auto i = 0; i+m-1 < n; i++){
