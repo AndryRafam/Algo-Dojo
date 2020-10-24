@@ -7,17 +7,17 @@ using namespace std;
 class Solution{
     public:
     static void freq (vector<string> vec){
-		priority_queue<pair<string,int>> pq;        
-		unordered_map<string,int> hash;
+	priority_queue<pair<string,int>> pq;        
+	unordered_map<string,int> hash;
         for(auto &x : vec)
             hash[x]++;
-		for(auto &y : hash)
-			pq.push({y.first,y.second});
-		if(!pq.empty()){
-			cout << pq.top().first << endl;
-			pq.pop();
-		}
-		return;
+	for(auto &y : hash)
+		pq.push({y.first,y.second});
+	if(!pq.empty()){
+		cout << pq.top().first << endl;
+		pq.pop();
+	}
+	return;
     }
 };
 
