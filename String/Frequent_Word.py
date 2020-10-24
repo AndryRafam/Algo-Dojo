@@ -1,5 +1,5 @@
 # Most frequent word in array.
-# If there is a tie, print any.
+# If there is a tie, print any of them.
 
 from collections import Counter
 
