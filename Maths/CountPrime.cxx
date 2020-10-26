@@ -16,7 +16,7 @@ class Solution{
 		return true;
 	}
 	static int primeNumber(long long n){
-		int count = 0;		
+		auto count = 0;		
 		for(auto x = 2; x <= n; ++x){
 			if(is_prime(x))
 				count++;
