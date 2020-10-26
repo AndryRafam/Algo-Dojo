@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution{
 	public:
-	static bool is_prime(long long n){
+	static bool is_prime(int n){
 		if(n==2)
 			return true;
 		for(auto i = 2; i <= sqrt(n); ++i){
@@ -15,7 +15,7 @@ class Solution{
 		}
 		return true;
 	}
-	static int primeNumber(long long n){
+	static int primeNumber(int n){
 		auto count = 0;		
 		for(auto x = 2; x <= n; ++x){
 			if(is_prime(x))
