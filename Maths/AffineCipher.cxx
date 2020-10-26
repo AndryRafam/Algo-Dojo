@@ -23,6 +23,6 @@ int main(){
 	ios_base::sync_with_stdio(0);
 	string test = "itahari";
 	int a = 3, b = 2;
-	cout << Solution::affineEncrypt(test,a,b) << endl; // ahcxba
+	cout << Solution::affineEncrypt(test,a,b) << endl; // ahcxcba
 	return 0;
 }
