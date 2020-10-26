@@ -17,7 +17,7 @@ class Solution{
 		}
 		string res = "";
 		while(!pq.empty()){
-			pair<int,char> one = pq.top();
+			pair<int,char> one = pq.top(); // first most current element
 			pq.pop();
 			if(pq.empty()){
 				if(one.first > 1)
@@ -25,7 +25,7 @@ class Solution{
 				res += one.second;
 				return res;
 			}
-			pair <int,char> two = pq.top();
+			pair <int,char> two = pq.top(); // second most current element
 			pq.pop();
 			res += one.second;
 			res += two.second;
