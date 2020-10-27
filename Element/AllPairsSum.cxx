@@ -1,5 +1,6 @@
 // All Pairs that Sum to Target
 // https://edabit.com/challenge/hTsL3mY96fpeTxqwD
+// O(nLogn) time complexity
 
 #include <bits/stdc++.h>
 using namespace std;
