@@ -10,8 +10,8 @@ class Solution{
         unordered_map<int,int> hash;
         for(auto i = 0; i < (int)square.size(); ++i){
             for(auto j = 0; j < (int)square.size(); ++j){
-                    if(square[i][j]<1 || square[i][j]>9)
-                        return false;
+                if(square[i][j]<1 || square[i][j]>9)
+                    return false;
                 hash[square[i][j]]++;
             }
         }
