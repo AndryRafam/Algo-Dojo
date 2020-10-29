@@ -24,6 +24,6 @@ class Solution{
 int main(){
     ios_base::sync_with_stdio(false);
     string test = "0xFF";
-    cout << Solution::hex_bin(test) << endl;
+    cout << Solution::hex_bin(test) << endl; // 11111111
     return 0;
 }
