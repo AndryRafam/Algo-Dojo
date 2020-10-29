@@ -14,4 +14,4 @@ def hex_bin(s:str)->str:
 
 if __name__=='__main__':
 	test = "0xFF"
-	print(hex_bin(test),end="\n")
+	print(hex_bin(test),end="\n") # 11111111
