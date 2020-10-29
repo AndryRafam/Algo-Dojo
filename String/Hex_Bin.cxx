@@ -9,7 +9,7 @@ using namespace std;
 class Solution{
 	public:
 	static string hex_bin(string s){
-		string res = "";
+	string res = "";
     	unordered_map<char,string> match {{'A',"1010"},{'B',"1011"},{'C',"1100"},{'D',"1101"},{'E',"1110"},{'F',"1111"}};
 		for(auto x : s){
 			for(auto y : match){
