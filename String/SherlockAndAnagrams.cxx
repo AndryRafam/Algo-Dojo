@@ -34,7 +34,9 @@ int SherlockAndAnagrams(string s){
 }
 
 int main(){
-    string s = "kkkk";
-    printf("%d\n",SherlockAndAnagrams(s));
+    string a = "kkkk";
+    string b = "ifailuhkqq";
+    printf("%d\n",SherlockAndAnagrams(a)); // 10
+    printf("%d\n",SherlockAndAnagrams(b)); // 3
     return 0;
 }
