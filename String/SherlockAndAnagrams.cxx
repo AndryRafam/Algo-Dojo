@@ -19,7 +19,7 @@ bool is_anagram(string a, string b){
 int SherlockAndAnagrams(string s){
     auto count = 0;
     vector<string> r;
-    for(auto i(0); i < (int)s.length(); i++){
+    for(auto i(0); s[i]; i++){
         for(auto j(1); j <= (int)s.length()-i; j++){
             r.emplace_back(s.substr(i,j));
         }
