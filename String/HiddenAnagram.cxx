@@ -6,9 +6,12 @@ using namespace std;
 
 string lowerconcat(string s){
     string t = "";
-    s.erase(remove(s.begin(),s.end(),' '),s.end());
-    for(auto x : s)
-        t+=tolower(x);
+    for(auto x : s){
+        if(x==' ')
+            t+="";
+        else
+            t+=tolower(x);
+    }
     return t;
 }
 
