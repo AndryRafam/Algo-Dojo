@@ -7,10 +7,10 @@ using namespace std;
 string lowerconcat(string s){
     string t = "";
     for(auto x : s){
-        if(x==' ')
-            t+="";
-        else
+        if((int(x)>=65&&int(x)<=90)||(int(x)>=97&&int(x)<=122))
             t+=tolower(x);
+        else
+            t+="";    
     }
     return t;
 }
@@ -39,13 +39,13 @@ string hiddenAnagram(string a, string b){
 }
 
 int main(){
-    string a = "An old west action hero actor";
-    string b = "Clint Eastwood";
+    string a = "D  e b90it->?$ (c)a r...d,,#~";
+    string b = "bad credit";
 
     string s = "Bright is the moon";
     string t = "Bongo mirth";
     
-    printf("%s\n",hiddenAnagram(lowerconcat(a),lowerconcat(b)).c_str()); // noldwestactio
+    printf("%s\n",hiddenAnagram(lowerconcat(a),lowerconcat(b)).c_str()); // debitcard
     printf("%s\n",hiddenAnagram(lowerconcat(s),lowerconcat(t)).c_str()); // Not found
     
     return 0;
