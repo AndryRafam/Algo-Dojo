@@ -11,7 +11,12 @@ def lowerconcat(s:str)->str:
 	return t
 
 def is_anagram(a:str,b:str)->bool:
-	return True if(sorted(a)==sorted(b)) else False
+	d = 0
+	for x in a:
+		d+=ord(x)
+	for y in b:
+		d-=ord(y)
+	return True if(d==0) else False
 
 def hiddenAnagram(a:str,b:str)->str:
 	temp = ""
