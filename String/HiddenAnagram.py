@@ -12,10 +12,11 @@ def lowerconcat(s:str)->str:
 
 def is_anagram(a:str,b:str)->bool:
 	d = 0
-	for x in a:
-		d+=ord(x)
-	for y in b:
-		d-=ord(y)
+	if(len(a)!=len(b)):
+		return False
+	for x in range(len(a)):
+		d+=ord(a[x])
+		d-=ord(b[x])
 	return True if(d==0) else False
 
 def hiddenAnagram(a:str,b:str)->str:
