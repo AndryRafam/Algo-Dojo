@@ -12,15 +12,16 @@ class Solution{
     public:
     static int maximumGap(vector<int> &nums){
         int n = nums.size();
-        vector<int> pq;
+        auto max = 0;
         if((nums[0]-nums[n-1])>0){
-            pq.emplace_back(abs(nums[0]-nums[n-1]));
+            max=abs(nums[0]-nums[n-1]);
         }
         for(auto x(0); x < n-1; x++){
-            if((nums[x+1]-nums[x])>0)
-                pq.emplace_back(nums[x+1]-nums[x]);
+            auto t = nums[x+1]-nums[x];
+            if(t>0 and max<=t)
+                max=nums[x+1]-nums[x];
         }
-        return (n>=2 ? *max_element(pq.begin(),pq.end()):0);
+        return (n>=2 ? max:0);
     }
 };
 
