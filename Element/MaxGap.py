@@ -17,5 +17,7 @@ def maximumGap(nums)->int:
 
 
 if __name__=='__main__':
-	vec = [3,6,9,1]
-	print(maximumGap(vec), end="\n")
+	vec1 = [3,6,9,1]
+	vec2 = [0]
+	print(maximumGap(vec1), end="\n") # 3
+	print(maximumGap(vec2), end="\n") # 0
