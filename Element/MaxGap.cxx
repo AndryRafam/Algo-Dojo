@@ -4,7 +4,6 @@
 
 // https://leetcode.com/problems/maximum-gap/
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -19,7 +18,7 @@ class Solution{
         for(auto x(0); x < n-1; x++){
             auto t = nums[x+1]-nums[x];
             if(t>0 and max<=t)
-                max=nums[x+1]-nums[x];
+                max=t;
         }
         return (n>=2 ? max:0);
     }
