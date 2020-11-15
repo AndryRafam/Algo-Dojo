@@ -12,7 +12,7 @@ def maximumGap(nums)->int:
 	for x in range(n-1):
 		temp = nums[x+1]-nums[x]
 		if(temp>0 and max<=temp):
-			max=nums[x+1]-nums[x]
+			max=temp
 	return (max if(n>=2) else 0)
 
 
