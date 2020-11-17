@@ -28,13 +28,12 @@ class Solution1{
 class Solution2{
     public:
     static vector<int> findDupl(vector<int>& nums){
-        int n = nums.size();
         vector<int> res;
-        for(auto x(0); x < n; x++){
-            if(nums[abs(nums[x])]>=0)
-                nums[abs(nums[x])]*=-1;
+        for(auto x : nums){
+            if(nums[abs(x)]>=0)
+                nums[abs(x)]*=-1;
             else
-                res.emplace_back(abs(nums[x]));
+                res.emplace_back(abs(x));
         }
         return res;
     }
