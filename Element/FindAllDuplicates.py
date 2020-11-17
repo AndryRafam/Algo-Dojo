@@ -2,7 +2,7 @@
 
 from collections import Counter
 
-def findDupl1(nums:list)->list:
+def findDupl(nums:list)->list:
     h = Counter(nums)
     res = []
     for(key,val) in h.items():
