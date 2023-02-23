@@ -1,19 +1,21 @@
 /*Given two unsorted arrays, find all pairs whose sum is a given number
-Complexity: O(N*M)*/
 
-#include <bits/stdc++.h>
+Time Complexity: O(N*M)
+Space Complexity: O(1)*/
+
+include <bits/stdc++.h>
 using namespace std;
 
 class Answer{
     public:
-        static void find_pairs(vector<int> tab1, vector<int> tab2, int sum){
-            for(auto i = 0; i < tab1.size(); i++){
-                for(auto j = 0; j < tab2.size(); j++){
-                    if(tab1[i]+tab2[j]==sum)
-                        cout << tab1[i] << " " << tab2[j] << endl; 
-                }
-            }
+    static void find_pairs(vector<int> tab1, vector<int> tab2, int sum){
+        vector<int>::iterator it;
+        for (auto x : tab1){
+            it = find(tab2.begin(),tab2.end(),sum-x);
+            if(it!=tab2.end())
+                cout << x << " " << sum-x << endl;
         }
+    }
 };
 
 int main(){
