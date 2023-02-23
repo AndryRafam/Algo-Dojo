@@ -1,4 +1,4 @@
-/*Given two unsorted arrays, find all pairs whose sum is a given number
+/*Given two unsorted arrays of size N and M, find all pairs whose sum is a given number
 
 Time Complexity: O(N*M)
 Space Complexity: O(1)*/
