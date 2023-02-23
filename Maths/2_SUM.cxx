@@ -1,4 +1,5 @@
-/* Given an array of size N and a number "c", determine whether or not there exist pairs of numbers "a" and "b", such that a+b=c
+/* Given an array of size N and a number "c", determine whether or not there exist pairs of numbers "a" and "b", such that a+b=c.
+In this exercise, you don't need to return the pairs.
 
 Time Complexity: O(N)
 Space Complexity: O(N)*/
