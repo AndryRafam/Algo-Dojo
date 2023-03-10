@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* Group anagrams.
+/*Group anagrams.
 
 Given an array of string, group the anagrams together.
 
