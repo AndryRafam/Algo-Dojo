@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 /*Group anagrams.
 
 Given an array of string, group the anagrams together.
@@ -10,6 +7,9 @@ Time complexity: O(Nklogk)
 where N = size of array of string
 
 and k = size of each string in the array.*/
+
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
     public:
