@@ -1,3 +1,5 @@
+/*Given an array of integer and an integer k, return the k smallest element of the array.*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
