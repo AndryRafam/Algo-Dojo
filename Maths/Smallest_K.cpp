@@ -20,7 +20,6 @@ vector<int> smallest_k(vector<int> arr, int k) {
         result.emplace_back(maxHeap.top());
         maxHeap.pop();
     }
-    sort(result.begin(),result.end());
     return result;
 }
 
