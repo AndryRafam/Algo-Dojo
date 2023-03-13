@@ -12,7 +12,7 @@ It takes O(N²) to generate all substrings of the string, and O(N) to count the 
 
 from collections import Counter
 
-def uniqueLetterString (s:str)->int:
+def util (s:str)->int:
     mp = Counter(s)
     count = 0
     
@@ -23,12 +23,14 @@ def uniqueLetterString (s:str)->int:
             count+=1
     return count
 
-if __name__=="__main__":
-    s = input()
+def uniqueLetterString (s:str)->int:
     total_count = 0
     for i in range(len(s)):
         for j in range(i+1,len(s)+1):
             temp = s[i:j]
-            total_count+=uniqueLetterString(temp)
-    
-    print(total_count)
+            total_count+=util(temp)
+    return total_count
+
+if __name__=="__main__":
+    s = input()
+    print(uniqueLetterString(s))
