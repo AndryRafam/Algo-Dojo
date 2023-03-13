@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
     public:
-    static int util(string s) {
+    static int countUniqueChars(string s) {
         unordered_map<char,int> mp;
 
         for(auto x : s) {
@@ -36,7 +36,7 @@ class Solution {
         int total_count = 0;
         for(auto i(0); i < s.length(); ++i) {
             for(auto j(1); j <= s.length()-i; ++j) {
-                total_count += util(s.substr(i,j));
+                total_count += countUniqueChars(s.substr(i,j));
             }
         }
         return total_count;
@@ -46,7 +46,6 @@ class Solution {
 int main() {
     string s;
     cin >> s;
-    printf("\n");
-    printf("%i\n",Solution::uniqueLetterString(s));
+    printf("%i",Solution::uniqueLetterString(s));
     return 0;
 }
