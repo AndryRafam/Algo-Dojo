@@ -10,13 +10,12 @@ Brute force approach: O(N³) time complexity, where N is the size of the string.
 
 It takes O(N²) to generate all substrings of the string, and O(N) to count the number of unique characters.*/
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
     public:
-    static int uniqueLetterString (string s) {
+    static int util(string s) {
         unordered_map<char,int> mp;
 
         for(auto x : s) {
@@ -33,18 +32,21 @@ class Solution {
         }
         return count;
     }
+    static int uniqueLetterString(string s) {
+        int total_count = 0;
+        for(auto i(0); i < s.length(); ++i) {
+            for(auto j(1); j <= s.length()-i; ++j) {
+                total_count += util(s.substr(i,j));
+            }
+        }
+        return total_count;
+    }
 };
 
 int main() {
     string s;
     cin >> s;
-
-    int total_count = 0;
-    for(auto i(0); i < s.length(); ++i) {
-        for(auto j(1); j <= s.length()-i; ++j) {
-            total_count += Solution::uniqueLetterString(s.substr(i,j));
-        }
-    }
-    printf("%i\n",total_count);
+    printf("\n");
+    printf("%i\n",Solution::uniqueLetterString(s));
     return 0;
 }
