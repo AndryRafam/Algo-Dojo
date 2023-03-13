@@ -44,8 +44,9 @@ class Solution {
 };
 
 int main() {
+    std::ios::sync_with_stdio(false);
     string s;
     cin >> s;
-    printf("%i",Solution::uniqueLetterString(s));
+    cout << Solution::uniqueLetterString(s) << "\n";
     return 0;
 }
