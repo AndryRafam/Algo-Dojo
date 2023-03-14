@@ -1,4 +1,4 @@
-/*Given two string 'a'* and 'b'; find a string 's' such that:
+/*Given two string 'a' and 'b'; find a string 's' such that:
 
 1) s = sa + sb, where 'sa' and 'sb' are non empty substring of 'a' and 'b'.
 
