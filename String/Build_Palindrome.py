@@ -43,14 +43,13 @@ def build_palindrome(a:str, b:str)->str:
     if len(pal_tab)==0:
         return "-1"
 
-    maxlen = 0
     candidate = ""
 
     for s in pal_tab:
-        if maxlen < len(s):
-            maxlen = len(s)
+        if len(candidate) < len(s):
             candidate = s
-        elif maxlen==len(s) and s < candidate:
+
+        elif len(candidate)==len(s) and s < candidate:
             candidate = s
     
     return candidate
