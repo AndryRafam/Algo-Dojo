@@ -4,7 +4,7 @@
 
 2) s is a palindromic string.
 
-3) the length of is as long as possible
+3) the length of is as long as possible.
 
 If there are multiple answer, return the one who comes first alaphabetically. If there is no answer, return -1.
 
