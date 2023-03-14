@@ -4,7 +4,7 @@
 
 2) s is a palindromic string.
 
-3) the length of is as long as possible.
+3) the length of is as long as possible
 
 If there are multiple answer, return the one who comes first alaphabetically. If there is no answer, return -1.
 
@@ -60,15 +60,13 @@ class Solution {
             return "-1";
         }
 
-        int maxlen = 0;
         string candidate = "";
 
         for(auto s : pal_tab) {
-            if(maxlen < s.length()) {
-                maxlen = s.length();
+            if(candidate.length() < s.length()) {
                 candidate = s;
             }
-            else if(maxlen==s.length() && s < candidate) {
+            else if(candidate.length()==s.length() && s < candidate) {
                 candidate = s;
             }
         }
