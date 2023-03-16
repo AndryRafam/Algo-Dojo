@@ -18,7 +18,7 @@ Output
 For each test case print "YES" if they are allowed to marry, else print "NO". (quotes are meant for clarity, 
 please don't print them)
 
-Time complexity: O(N*M), where N is the length of s and M is the length of w. We are using LCS (Longest Common Subsequence)
+Time complexity: O(n*m), where n is the length of M and m is the length of W. We are using LCS (Longest Common Subsequence)
 algorithm here.
 */
 
