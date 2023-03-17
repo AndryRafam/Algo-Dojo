@@ -47,7 +47,6 @@ class Solution {
 
 int main(int argc, char **argv) {
 	int n;
-	int count = 0;
 	cin >> n;
 	vector<string> arr;
 	string s;
