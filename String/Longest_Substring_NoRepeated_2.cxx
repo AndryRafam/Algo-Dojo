@@ -1,5 +1,7 @@
 /*Longest palindromic substring.
 
+Given a string s, return the longest palindromic substring in s.
+
 We are gonna solve this problem by expanding around the center of the string.
 
 Time complexity: O(N²), where N is the length of the string.*/
