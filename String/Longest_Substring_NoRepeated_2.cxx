@@ -22,7 +22,7 @@ class Solution {
 			// String can be odd (length) or even (length). Consider both case.
 			int len = max(expandAroundCenter(s,i,i), expandAroundCenter(s,i,i+1));
 			if(len > end-start) {
-				start = i - (len-1)/2;
+				start = i-(len-1)/2;
 				end = i+len/2;
 			}
 		}
