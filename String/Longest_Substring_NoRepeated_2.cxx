@@ -24,7 +24,6 @@ class Solution {
 				end = i+len/2;
 			}
 		}
-		// C++ STL : substr(start_position, string_length)
 		return s.substr(start,end-start+1);
 	}
 	private:
