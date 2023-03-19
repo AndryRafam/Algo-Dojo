@@ -1,39 +1,44 @@
-// Length of the longest substring without repeated character
+/*Longest palindromic substring.
+
+We are gonna solve this problem by expanding around the center of the string.
+
+Time complexity: O(N²), where N is the length of the string.*/
+
 
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
+class Solution {
 	public:
-	static bool unique(string s){
-		unordered_map<char,int> hash;
-		for(auto i = 0; i < (int)s.size(); ++i)
-			hash[s[i]]++;
-		for(auto &x : hash){
-			if(x.second != 1){
-				return false;
+	static string longestPalindrome(string s) {
+		if(s.size()==0) {
+			return "";
+		}
+		int start = 0;
+		int end = 0;
+		for(auto i(0); i < s.length(); ++i) {
+			// String can be odd (length) or even (length). Consider both case.
+			int len = max(expandAroundCenter(s,i,i), expandAroundCenter(s,i,i+1));
+			if(len > end-start) {
+				start = i - (len-1)/2;
+				end = i+len/2;
 			}
 		}
-		return true;
+		return s.substr(start,end-start+1);
 	}
-	static int lenOfLongSubstring(string s){
-		string temp = "";
-		vector<int> len;
-		for(auto i = 0; i < (int)s.size(); ++i){
-			for(auto j = 1; j <= (int)s.size()-i; ++j){
-				temp = s.substr(i,j);
-				if(unique(temp))
-					len.emplace_back(temp.size());
-			}
+	private:
+	static int expandAroundCenter(string s, int left, int right) {
+		while(left >= 0 && right < s.length() && s[left]==s[right]) {
+			left--;
+			right++;
 		}
-		return *max_element(len.begin(),len.end());
+		return right-left-1;
 	}
 };
 
-int main(){
-	ios_base::sync_with_stdio(0);
-	cout.tie(0);
-	string s = "abcabcbb"; // 3
-	cout << Solution::lenOfLongSubstring(s) << endl;
+int main() {
+	string s;
+	cin >> s;
+	cout << Solution::longestPalindrome(s);
 	return 0;
 }
