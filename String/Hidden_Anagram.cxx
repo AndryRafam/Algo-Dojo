@@ -68,8 +68,8 @@ int main(){
     string s = "An old west action hero actor";
     string t = "Clint Eastwood";
     
-    cout << Solution::hiddenAnagram(a,b) << "\n";
-    cout << Solution::hiddenAnagram(s,t);
+    cout << Solution::hiddenAnagram(a,b) << "\n"; // debitcard
+    cout << Solution::hiddenAnagram(s,t); // noldwestactio
 
     return 0;
 }
