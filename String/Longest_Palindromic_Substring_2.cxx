@@ -17,7 +17,7 @@ class Solution {
         for(auto x : s) {
             temp+=x+string("#");
         }
-        string s_prime = string("#")+temp;
+        string s_prime = string("#")+temp; // for example: aba -> #a#b#a#
         vector<int> pal_radius(s_prime.length(),0);
         int start = 0;
         int end = 0;
