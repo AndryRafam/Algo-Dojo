@@ -51,7 +51,7 @@ class Solution {
     private:
     static string ignore_others(string s) { // function to ignore all characters but lower ones.
         string t = "";
-        for(auto x : s){
+        for(auto x : s) {
             if((int(x)>=65&&int(x)<=90)||(int(x)>=97&&int(x)<=122))
                 t+=tolower(x);
             else
