@@ -18,7 +18,7 @@ class Solution {
             temp+=x+string("#");
         }
         string s_prime = string("#")+temp; // for example: aba -> #a#b#a#
-        vector<int> pal_radius(s_prime.length(),0);
+        //vector<int> pal_radius(s_prime.length(),0);
         int start = 0;
         int end = 0;
         int center = 0;
@@ -27,9 +27,9 @@ class Solution {
             while(center-(radius+1) >=0 && center+(radius+1) < s_prime.length() && s_prime[center-(radius+1)]==s_prime[center+(radius+1)]) {
                 radius++;
             }
-            pal_radius[center] = radius;
+            //pal_radius[center] = radius;
             
-            if(pal_radius[center] > end-start) {
+            if(radius > end-start) {
                 start = (center-radius)/2;
                 end = (center+radius)/2;
             }
