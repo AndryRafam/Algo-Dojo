@@ -21,7 +21,7 @@ class Solution {
     static set<int> findSubstring(string s, vector<string> words) {
         string p = "";
         for(auto x : words) {
-            p+=x;
+            p.append(x);
         }
         int k = words[0].length();
         set<int> ans;
