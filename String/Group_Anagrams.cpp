@@ -15,13 +15,13 @@ class Solution {
     public:
     static vector<vector<string>> group_anagrams(vector<string> &str) {
         unordered_map<string,vector<string>> mp;
-        for(auto x : str) {
+        for(auto &x : str) {
             string temp = x;
             sort(temp.begin(),temp.end());
             mp[temp].emplace_back(x);
         }
         vector<vector<string>> res;
-        for(auto y : mp) {
+        for(auto &y : mp) {
             res.emplace_back(y.second);
         }
         return res;
