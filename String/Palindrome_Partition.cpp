@@ -1,35 +1,53 @@
-// Find all palindrome partition of given string
+/*
+Given a string s, partition s such that every substring of the partition is a palindrome.
+Return all possible palindrome partitioning of s.
+
+Time complexity: O(N*2^N), where N is the length of the string S.
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
+class Solution {
     public:
-        static bool palindrome(string &s){
-            int n = s.length();
-            for(auto i = 0; i < n/2; ++i){
-                if(s[i]!= s[n-1-i])
-                    return false;
-            }
-            return true;
+    static vector<vector<string>> partition(string s) {
+        vector<vector<string>> result;
+        vector<string> currentList;
+        dfs(result,s,0,currentList);
+        return result;
+    }
+    private:
+    static void dfs(vector<vector<string>> &result, string &s, int start, vector<string> &currentList) {
+        if(start >= s.length()) {
+            result.emplace_back(currentList);
         }
-        static vector<string> palindrome_substr(string &s){
-            string temp = "";
-            vector<string> res;
-            for(auto i = 0; i < s.length(); ++i){
-                for(auto len = 1; len <= s.length()-i; ++len){
-                    temp = s.substr(i,len);
-                    if(palindrome(temp))
-                        res.emplace_back(temp);
-                }
+        for(auto end = start; end < s.length(); end++) {
+            if(isPalindrome(s,start, end)) {
+                // add current palindrome substring in the current list
+                currentList.emplace_back(s.substr(start,end-start+1));
+                // backtrack and remove the current palindrome substring from currentList
+                dfs(result,s,end+1,currentList);
+                currentList.pop_back();
             }
-            return res;
         }
+    }
+    static bool isPalindrome(string &s, int left, int right) {
+        while(left < right) {
+            if (s[left++]!=s[right--]) {
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
-int main(){
+int main() {
     ios_base::sync_with_stdio(false);
-    string test = "xobob"; // x o obo b bob o b
-    for(auto &x : Solution::palindrome_substr(test))
-        cout << x << " ";
+    string s = "aab";
+    for(auto x : Solution::partition(s)) {
+        for(auto y : x) {
+            cout << y << " ";
+        }
+    }
+    return 0;
 }
