@@ -8,10 +8,12 @@ using namespace std;
 class Solution {
 	public:
 	static bool exist(vector<vector<char>> &board, string word) {
+		// vector<string> result;
 		for(auto i(0); i!=(int)board.size(); ++i) {
 			for(auto j(0); j!=(int)board[i].size(); ++j) {
 				if(board[i][j]==word[0] && dfs(board,word,i,j,0)) {
 					return true;
+					// result.emplace_back(word);
 				}
 			}
 		}
