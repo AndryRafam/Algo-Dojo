@@ -14,7 +14,7 @@ def exist(board,word):
 def dfs(board,word,i,j,k)->bool:
     if(k==len(board)):
         return True
-    if(i < 0 or i >= len(board) or j < 0 or j > len(board[i]) or board[i][j]!=word[k]):
+    if(i < 0 or i >= len(board) or j < 0 or j >= len(board[i]) or board[i][j]!=word[k]):
         return False
     
     temp = board[i][j]
