@@ -2,7 +2,7 @@
 Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
 such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
-Time complexity: O(NlogN)+O(N²)*O(logN) = O(N²logN+NlogN), sort the array first and then apply two pointers approach.
+Time complexity: O(N²)+O(NlogN) = O(N²+NlogN), sort the array first and then apply two pointers approach.
 N is the size of the array.
 """
 
