@@ -2,8 +2,7 @@
 Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
 such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
-Time complexity: O(N²logN), sort the array first and then apply two pointers approach.
-				 N is the size of the array.
+Time complexity: O(N²logN), sort the array first and then apply two pointers approach. N is the size of the array.
 */
 
 #include <bits/stdc++.h>
