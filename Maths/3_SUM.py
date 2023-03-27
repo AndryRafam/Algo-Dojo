@@ -12,12 +12,11 @@ def threeSum(nums):
         j = i+1
         k = len(nums)-1
         while (j < k):
-            sum = nums[i]+nums[j]+nums[k]
-            if sum==0:
+            if nums[i]+nums[j]+nums[k]==0:
                 result.add((nums[i],nums[j],nums[k]))
                 k-=1
                 j+=1
-            elif sum < 0:
+            elif nums[i]+nums[j]+nums[k] < 0:
                 j+=1
             else:
                 k-=1
