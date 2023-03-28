@@ -1,46 +1,37 @@
-/*Longest palindromic substring.
+/*
+Given a string s, find the length of the longest substring without repeating characters.
 
-Given a string s, return the longest palindromic substring in s.
-
-We are gonna solve this problem by expanding around the center of the string.
-
-Time complexity: O(N²), where N is the length of the string.*/
-
+Time complexity: O(2*N) = O(N); where N is the lenght of the string.
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 	public:
-	static string longestPalindrome(string s) {
-		if(s.size()==0) {
-			return "";
-		}
-		int start = 0;
-		int end = 0;
-		for(auto i(0); i < s.length(); ++i) {
-			// String can be odd (length) or even (length). Consider both case.
-			int len = max(expandAroundCenter(s,i,i), expandAroundCenter(s,i,i+1));
-			if(len > end-start) {
-				start = i-(len-1)/2;
-				end = i+len/2;
+	static int lengthOfLongestSubstring(string &s) {
+		unordered_map<char,int> hash;
+		int left = 0;
+		int right = 0;
+		int res = 0;
+		
+		while(right < s.length()) {
+			hash[s[right]]++;
+			
+			while(hash[s[right]] > 1) {
+				hash[s[left]]--;
+				left++;
 			}
-		}
-		return s.substr(start,end-start+1);
-	}
-	private:
-	static int expandAroundCenter(string s, int left, int right) {
-		while(left >= 0 && right < s.length() && s[left]==s[right]) {
-			left--;
+			res = max(res,right-left+1);
 			right++;
 		}
-		return right-left-1;
+		return res;
 	}
 };
 
 int main() {
-	string s;
-	cin >> s;
-	cout << Solution::longestPalindrome(s);
+	ios_base::sync_with_stdio(false);
+	string s = "pwwkew";
+	cout << Solution::lengthOfLongestSubstring(s);
 	return 0;
 }
