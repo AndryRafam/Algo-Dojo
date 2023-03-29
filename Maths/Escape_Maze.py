@@ -17,7 +17,7 @@ class Solution:
             if x==N-1 and y==M-1:
                 return True
             elif maze[x][y]==1:
-                maze[x][y]=0
+                maze[x][y]='$' # block after visit
                 for k in range(4):
                     if dfs(maze,x+row[k],y+col[k]):
                         return True
