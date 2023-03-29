@@ -11,15 +11,15 @@ class Solution:
         row = [-1,0,0,1]
         col = [0,-1,1,0]
         
-        def dfs(maze,start_x,start_y)->bool:
-            if start_x < 0 or start_x >= N or start_y < 0 or start_y >= M or maze[start_x][start_y]!=1:
+        def dfs(maze,x,y)->bool:
+            if x < 0 or x >= N or y < 0 or y >= M or maze[x][y]!=1:
                 return False
-            if start_x==N-1 and start_y==M-1:
+            if x==N-1 and y==M-1:
                 return True
-            elif maze[start_x][start_y]==1:
-                maze[start_x][start_y]=0
+            elif maze[x][y]==1:
+                maze[x][y]=0
                 for k in range(4):
-                    if dfs(maze,start_x+row[k],start_y+col[k]):
+                    if dfs(maze,x+row[k],y+col[k]):
                         return True
             return False
         
