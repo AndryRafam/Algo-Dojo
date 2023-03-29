@@ -18,18 +18,6 @@ class Solution{
 		if(start_x<0 || start_x>=N || start_y<0 || start_y>=M || maze[start_x][start_y]!=1){
 			return false;
 		}
-		/*if(maze[start_x][start_y]==1){
-			maze[start_x][start_y]='$'; // mark cell as visited, so we can't visit it anymore
-			if(start_x==N-1 && start_y==M-1){
-				return true;
-			}
-			for(auto k = 0; k < 4; k++){
-				if(dfs(maze,start_x+row[k],start_y+col[k])){
-					return true;
-				}
-			}
-			
-		}*/
 		if(start_x==N-1 && start_y==M-1){
 			return true;
 		}
