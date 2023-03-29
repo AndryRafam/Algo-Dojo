@@ -10,21 +10,21 @@ using namespace std;
 
 class Solution{
 	public:
-	static bool dfs(vector<vector<int>> &maze, int start_x, int start_y){
+	static bool dfs(vector<vector<int>> &maze, int x, int y){
 		int N = maze.size();
 		int M = maze[0].size();
 		vector<int> row = {-1,0,0,1};
 		vector<int> col = {0,-1,1,0};
-		if(start_x<0 || start_x>=N || start_y<0 || start_y>=M || maze[start_x][start_y]!=1){
+		if(x<0 || x>=N || y<0 || y>=M || maze[x][y]!=1){
 			return false;
 		}
-		if(start_x==N-1 && start_y==M-1){
+		if(x==N-1 && y==M-1){
 			return true;
 		}
-		else if(maze[start_x][start_y]==1){
-			maze[start_x][start_y]='$';
+		else if(maze[x][y]==1){
+			maze[x][y]='$';
 			for(int k(0); k < 4; ++k){
-				if(dfs(maze,start_x+row[k],start_y+col[k])){
+				if(dfs(maze,x+row[k],y+col[k])){
 					return true;
 				}
 			}
@@ -43,11 +43,11 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cout.tie(0);
 	vector<vector<int>> maze = {{1, 0, 0, 1, 1, 1},
-				    {1, 1, 0, 1, 0, 1},
-				    {0, 1, 1, 1, 0, 1},
-				    {0, 0, 1, 0, 1, 1},
-				    {0, 0, 1, 0, 1, 0},
-				    {0, 0, 1, 0, 1, 1}}; // True in this example
+								{1, 1, 0, 1, 0, 1},
+								{0, 1, 1, 1, 0, 1},
+								{0, 0, 1, 0, 1, 1},
+								{0, 0, 1, 0, 1, 0},
+								{0, 0, 1, 0, 1, 1}}; // True in this example
 								
 	cout << (Solution::path(maze)==1 ? "True":"False") << endl;
 	return 0;
