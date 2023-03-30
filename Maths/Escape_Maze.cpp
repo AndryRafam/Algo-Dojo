@@ -1,7 +1,7 @@
 /*
 Can you exit the maze ?
 Maze problem: Starting from top left corner, find a way to the bottom right corner.
-All directions is allowed Up, Down, Right, Left.
+All directions are allowed Up, Down, Right, Left.
 */ 
 
 #include <bits/stdc++.h>
