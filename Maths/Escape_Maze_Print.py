@@ -8,7 +8,7 @@ Print the solution if there is one, otherwise, print NO PATH.
 def path(maze)->bool:
     N = len(maze)
     M = len(maze[0])
-    sol = [[0 for j in range(M)] for i in range(N)]
+    sol = [[0 for j in range(M)] for i in range(N)] # solution matrix filled with 0, same size as maze
     if dfs(maze,0,0,sol):
         printPath(sol)
         return True
