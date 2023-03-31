@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
     public:
     static bool path(vector<vector<int>> &maze){
-        vector<vector<int>> sol(maze.size(),vector<int>(maze[0].size(),0)); // solution matrix filled with 0, same size as maze
+        vector<vector<int>> sol(maze); // solution matrix filled with 0, same size as maze
         if(dfs(maze,0,0,sol)){
             printPath(sol);
             return true;
@@ -25,7 +25,7 @@ class Solution{
             for(auto j(0); j < maze[0].size(); ++j){
                 cout << " " << maze[i][j] << " ";
             }
-            cout << "\n";
+            cout << "\n\n";
         }
         return;
     }
@@ -38,14 +38,14 @@ class Solution{
             return false;
         }
         if(x==N-1 && y==M-1){
-            sol[x][y]=1;
+            sol[x][y]=9; // mark path as 9
             return true;
         }
         else if(maze[x][y]==1){
             maze[x][y]='$';
             for(auto k(0); k < 4; ++k){
                 if(dfs(maze,x+dx[k],y+dy[k],sol)){
-                    sol[x][y]=1;
+                    sol[x][y]=9; // mark path as 9
                     return true;
                 }
             }
