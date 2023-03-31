@@ -18,8 +18,8 @@ def path(maze)->bool:
 def printPath(maze):
     for i in range(len(maze)):
         for j in range(len(maze[0])):
-            print(maze[i][j], end=" ")
-        print("\n")
+            print(maze[i][j], end="  ")
+        print("\n\n")
 
 def dfs(maze,x,y,sol)->bool:
     N = len(maze)
@@ -29,13 +29,13 @@ def dfs(maze,x,y,sol)->bool:
     if x < 0 or x >= N or y < 0 or y >= M or maze[x][y]!=1:
         return False
     if x==N-1 and y==M-1:
-        sol[x][y]=1
+        sol[x][y]=9 # mark path as 9
         return True
     elif maze[x][y]==1:
         maze[x][y]='$'
         for k in range(4):
             if dfs(maze,x+dx[k],y+dy[k],sol):
-                sol[x][y]=1
+                sol[x][y]=9 # mark path as 9
                 return True
     return False
 
@@ -46,4 +46,4 @@ if __name__=="__main__":
             [0, 0, 0, 1, 1],
             [1, 1, 0, 1, 0],
             [0, 0, 0, 1, 1]]
-    path(maze);
+    path(maze)
