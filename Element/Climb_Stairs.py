@@ -1,15 +1,16 @@
-# Climb stairs - O(N) time complexity && O(N) space complexity
+"""
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top ?
+Time complexity && O(N) space complexity.
+"""
 
 def climbStairs(n):
-	if(n==1):
-		return 1
-	dp = [None for i in range(n+1)]
-	dp[1]=1
-	dp[2]=2
-	for i in range(3,n+1):
+	dp = [0 for i in range(n+1)]
+	dp[0]=1
+	for i in range(1,n+1):
 		dp[i]=dp[i-1]+dp[i-2]
 	return dp[n]
 
-if __name__=='__main__':
-	n = 4
-	print(climbStairs(n),end="\n") # 5
+if __name__=="__main__":
+	n = 12
+	print(climbStairs(n),end="\n") # 233
