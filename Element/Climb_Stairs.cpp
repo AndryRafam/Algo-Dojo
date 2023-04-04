@@ -9,8 +9,6 @@ using namespace std;
 class Solution{
     public:
     static int climbStairs(int n){
-        if(n==1)
-            return 1;
         vector<int> dp(n+1,0);
         dp[0]=1;
         for(auto i = 1; i <= n; ++i)
