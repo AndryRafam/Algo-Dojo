@@ -1,29 +1,24 @@
-# 2 Sum problem on a random array
+"""
+Given an array of size N and a number "c", determine whether or not there exist pairs of numbers "a" and "b", 
+such that a+b=c. If there is an answer, return their indices.
 
-# Complexity: O(N) if the array is already sorted
-#             O(NlogN) if the array is not sorted (we must sort first sort the array)
-
-
-# In this example, the array is not sorted (O(NlogN) complexity)
+Time Complexity: O(N)
+Space Complexity: O(N)
+"""
 
 class Solution(object):
-    def two_sum(self,arr:list,x:int):
-        arr.sort()
-        self.l = 0
-        self.r = len(arr)-1
-        self.flag = 0 # used to check if we have reached the end of the array
-        while(self.l < self.r):
-            if(arr[self.l]+arr[self.r]==x):
-                print(arr[self.l],arr[self.r])
-                return True
-            elif(arr[self.l]+arr[self.r] < x):
-                self.l+=1
-            else:
-                self.r-=1
-        print("NO PAIRS")    
+    def two_sum(self,arr:list,target:int):
+        hashmap = {};
+        for i, x in enumerate(arr):
+            complement = target - x
+            if complement in hashmap:
+                return [hashmap[complement],i]
+            hashmap[x] = i
+        return None
+
 
 if __name__=='__main__':
     test = [10,50,20,35,80,78]
-    target = 130
+    target = 60
     s = Solution()
-    s.two_sum(test,target)
+    print(s.two_sum(test,target),end=" ")
