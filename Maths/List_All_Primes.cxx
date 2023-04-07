@@ -1,5 +1,5 @@
 /*
-Write a program that takes an integer argument and returns all prime numbers between 1 and the integer (not included).
+Write a program that takes an integer argument and returns all prime numbers between 1 and the integer (included).
 
 Brute force approach
 
@@ -25,7 +25,7 @@ class Solution{
 	public:
 	static vector<int> listAllPrimes(int n){
 		vector<int> primes;
-		for(auto x(0); x < n; ++x){ // exclude n even if it is prime number
+		for(auto x(0); x <= n; ++x){ 
 			if(isPrime(x)){
 				primes.emplace_back(x);
 			}
