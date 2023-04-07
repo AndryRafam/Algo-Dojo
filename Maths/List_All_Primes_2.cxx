@@ -28,7 +28,7 @@ class Solution{
 		return primes;
 	}
 };
-
+// driver program
 int main(){
 	ios_base::sync_with_stdio(false);
 	int n;
