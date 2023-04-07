@@ -14,7 +14,7 @@ class Solution{
 	static vector<int> listAllPrimes(int n){
 		vector<int> primes;
 		vector<bool> is_prime(n+1,true);
-		is_prime[0] == is_prime[1] == false;
+		is_prime[0] = is_prime[1] = false;
 		
 		for(auto p(2); p <= n; p++){ 
 			if(is_prime[p]){
