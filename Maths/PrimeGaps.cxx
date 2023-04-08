@@ -3,6 +3,8 @@
  * return the first pair of prime numbers between m and n, that has a gap of size g.
  * If there is no such prime numbers, return null.
  *
+ * Brute force approach
+ * 
  * Time complexity: O((N-M)²)*O(Ksqrt(K)) = O((N-M)²Ksqrt(K))
 */
 
