@@ -26,7 +26,7 @@ def prime_gaps(g,m,n)->list:
 				res.append(i)
 				res.append(j)
 				return res
-	return [] 
+	return [0,0] 
 		
 
 if __name__=="__main__":
