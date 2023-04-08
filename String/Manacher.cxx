@@ -27,7 +27,7 @@ class Solution{
 				pal_radius[i] = min(right - i,pal_radius[mirror]);
 			}
 			
-			// expand around the center position
+			// expand around the current position
 			int left = i - (1 + pal_radius[i]);
 			int right = i + (1 + pal_radius[i]);
 			
