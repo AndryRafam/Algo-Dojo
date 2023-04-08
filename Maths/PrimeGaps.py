@@ -1,8 +1,16 @@
-# Source: https://edabit.com/challenge/ShunivMZuPRgEg7iQ
+"""
+Given an integer g >= 2, an integer m > 2 and an integer n >= m;
+return the first pair of prime numbers between m and n, that has a gap of size g.
+If there is no such prime numbers, return null.
+
+Brute force approach
+
+Time complexity: O((N-M)²)*O(Ksqrt(K)) = O((N-M)²Ksqrt(K))
+"""
 
 import math
 
-def prime(n)->bool:
+def isPrime(n)->bool:
     if(n < 2):
         return False
     for x in range(2,int(math.sqrt(n))+1):
@@ -10,23 +18,19 @@ def prime(n)->bool:
             return False
     return True
 
-def prime_gaps(g,a,b):
-    t = []
-    for i in range(a,b+1):
-        if(prime(i)):
-            t.append(i)
-    for x in range(len(t)):
-        for y in range(x+1,len(t)):
-            if(t[y]-t[x]==g):
-                print(t[x],end=" ")
-                print(t[y],end="\n")
-                return
-    print(0,end=" ")
-    print(0,end="\n")
-    return
+def prime_gaps(g,m,n)->list:
+	res = []
+	for i in range(m,n+1):
+		for j in range(i+1,n+1):
+			if isPrime(i) and isPrime(j) and j-i==g:
+				res.append(i)
+				res.append(j)
+				return res
+	return [] 
+		
 
 if __name__=="__main__":
-    g = 4
-    a = 130
-    b = 200
-    prime_gaps(g,a,b) # 163 167
+    g = int(input())
+    m = int(input())
+    n = int(input())
+    print(prime_gaps(g,m,n),end=" ")
