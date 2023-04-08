@@ -22,6 +22,7 @@ class Solution{
 		int max_len_center = 0; // center of longest palindrome found so far
 		
 		for (auto i(0); i < s_process.length(); ++i){
+			// Find the corresponding palindrome radius for the current position
 			if(i < right){
 				int mirror = 2*center - i;
 				pal_radius[i] = min(right - i,pal_radius[mirror]);
