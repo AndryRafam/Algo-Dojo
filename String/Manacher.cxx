@@ -17,7 +17,7 @@ class Solution{
 		
 		vector<int> pal_radius(s_process.length(),0);
 		int center = 0;
-		int max_right = 0;
+		int max_right = 0; // max right pointer
 		int max_len = 0; // length of the longest palindrome found so far
 		int max_len_center = 0; // center of longest palindrome found so far
 		
@@ -29,8 +29,8 @@ class Solution{
 			}
 			
 			// expand around the current position
-			int left = i - (1 + pal_radius[i]);
-			int right = i + (1 + pal_radius[i]);
+			int left = i - (1 + pal_radius[i]); // temporary left pointer
+			int right = i + (1 + pal_radius[i]); // temporary right pointer
 			
 			while(left >= 0 && right < s_process.length() && s_process[left]==s_process[right]){
 				pal_radius[i]++;
@@ -39,7 +39,7 @@ class Solution{
 			}
 			
 			// update the center and the right boundary if necessary
-			if(i+pal_radius[i] > right){
+			if(i+pal_radius[i] > max_right){
 				center = i;
 				max_right = i+pal_radius[i];
 			}
