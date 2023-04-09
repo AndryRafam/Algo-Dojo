@@ -17,15 +17,15 @@ class Solution{
 		
 		vector<int> pal_radius(s_process.length(),0);
 		int center = 0;
-		int right = 0;
+		int max_right = 0;
 		int max_len = 0; // length of the longest palindrome found so far
 		int max_len_center = 0; // center of longest palindrome found so far
 		
 		for (auto i(0); i < s_process.length(); ++i){
 			// Find the corresponding palindrome radius for the current position
-			if(i < right){
+			if(i < max_right){
 				int mirror = 2*center - i;
-				pal_radius[i] = min(right - i,pal_radius[mirror]);
+				pal_radius[i] = min(max_right - i,pal_radius[mirror]);
 			}
 			
 			// expand around the current position
@@ -41,7 +41,7 @@ class Solution{
 			// update the center and the right boundary if necessary
 			if(i+pal_radius[i] > right){
 				center = i;
-				right = i+pal_radius[i];
+				max_right = i+pal_radius[i];
 			}
 			
 			// update the maximum length of the palidrome and its center position
@@ -54,9 +54,7 @@ class Solution{
 		// extract the longest palindromic substring
 		int start = (max_len_center - max_len) >> 1;
 		int end = start + max_len;
-		
 		string res = s.substr(start,end-start);
-		
 		return res;
 	}
 };
