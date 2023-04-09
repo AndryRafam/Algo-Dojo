@@ -10,28 +10,30 @@ using namespace std;
 class Solution {
 	public:
 	static int lengthOfLongestSubstring(string &s) {
-		unordered_map<char,int> hash;
-		int left = 0;
-		int right = 0;
-		int res = 0;
+		int start = 0;
+		int end = 0;
+		int max_length = 0;
+		unordered_set<int> hashSet;
 		
-		while(right < s.length()) {
-			hash[s[right]]++;
-			
-			while(hash[s[right]] > 1) {
-				hash[s[left]]--;
-				left++;
+		while(end < s.length()){
+			if(hashSet.find(s[end])==hashSet.end()){
+				hashSet.insert(s[end]);
+				max_length = max(max_length, end-start+1);
+				end++;
 			}
-			res = max(res,right-left+1);
-			right++;
+			else{
+				hashSet.erase(s[start]);
+				start++;
+			}
 		}
-		return res;
+		return max_length;
 	}
 };
 
 int main() {
 	ios_base::sync_with_stdio(false);
-	string s = "pwwkew";
-	cout << Solution::lengthOfLongestSubstring(s);
+	string s;
+	cin >> s;
+	cout << Solution::lengthOfLongestSubstring(s) << "\n";
 	return 0;
 }
