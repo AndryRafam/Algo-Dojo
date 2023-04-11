@@ -1,25 +1,25 @@
 # Longest palindromci substring - O(N³) complexity
 
-
-class Solution(object):
-    def isPalindrome(self,s:str)->bool:
-        self.rev = str()
-        self.rev = reversed(s)
-        return list(s) == list(self.rev)
+def isPalindrome(s:str)->bool:
+    l = 0
+    r = len(s)-1
+    while(l < r):
+        if s[l]!=s[r]:
+            return False
+        l+=1
+        r-=1
+    return True
     
-    def longest_palindrome(self,s:str)->str:
-        self.arr = []
-        self.temp = str()
-        self.temp = ""
-        for i in range(len(s)):
-            for j in range(1,len(s)+1-i):
-                self.temp = s[i:j]
-                if(self.isPalindrome(self.temp)):
-                    self.arr.append(self.temp)
-        return max(self.arr)
+def longestPalindrome(s:str)->str:
+    maxi = 0
+    for i in range(len(s)):
+        for j in range(i+1,len(s)+1):
+            temp = s[i:j]
+            if isPalindrome(temp) and maxi < len(temp):
+                maxi = len(temp)
+                longest_pal = temp
+    return longest_pal
 
-
-if __name__=='__main__':
-    test = "xoxoxbab"
-    s = Solution()
-    print(s.longest_palindrome(test))
+if __name__=="__main__":
+    test = "xoxoxbaobab"
+    print(longestPalindrome(test),end=" ")
