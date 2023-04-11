@@ -1,4 +1,4 @@
-# Longest palindromci substring - O(N³) complexity
+# Longest palindromic substring - O(N³) complexity
 
 class Solution:
     def longestPalindrome(self,s:str)->str:
