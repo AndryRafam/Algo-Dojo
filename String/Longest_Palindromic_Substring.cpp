@@ -6,32 +6,38 @@ using namespace std;
 class Solution{
 	public:
 	static bool isPalindrome(string &s){
-		int n = s.length();
-		for(auto i = 0; i < n/2; ++i){
-			if(s[i]!=s[n-1-i])
+		int l = 0;
+		int r = s.length()-1;
+		while(l < r){
+			if(s[l++]!=s[r--]){
 				return false;
+			}
 		}
 		return true;
 	}
-	static void longestPalindrome(string &str){
-		vector<string> res;
+	static vector<pair<string,int>> longestPalindrome(string &str){
+		vector<pair<string,int>> res;
 		string temp = "";
+		string max_str = "";
 		int max = 0;
-		for(auto i = 0; i < str.length(); ++i){
-			for(auto j = 1; j <= str.length()-i; j++){
-				temp=str.substr(i,j);
+		for(auto i(0); str[i]; ++i){
+			for(auto j(1); j <= str.length()-i; ++j){
+				temp = str.substr(i,j);
 				if(isPalindrome(temp) && max < temp.length()){
 					max = temp.length();
-					res.emplace_back(temp);
+					max_str = temp;
 				}
 			}
 		}
-		cout << max << "\n";
-		cout << res[res.size()-1];
+		res.push_back({max_str,max});
+		return res;
 	}
 };
 int main(){
 	ios_base::sync_with_stdio(false);
-	string test = "xoxoxbab"; // 5 xoxox
-	Solution::longestPalindrome(test);
+	string test = "xoxoxbaobab"; // 5 xoxox
+	for(auto &x : Solution::longestPalindrome(test)){
+		cout << x.first << " ";
+	}
+	return 0;
 }
