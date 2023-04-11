@@ -15,29 +15,26 @@ class Solution{
 		}
 		return true;
 	}
-	static vector<pair<string,int>> longestPalindrome(string &str){
-		vector<pair<string,int>> res;
+	static string longestPalindrome(string &str){
 		string temp = "";
-		string max_str = "";
+		string longest_pal = "";
 		int max = 0;
 		for(auto i(0); str[i]; ++i){
 			for(auto j(1); j <= str.length()-i; ++j){
 				temp = str.substr(i,j);
 				if(isPalindrome(temp) && max < temp.length()){
 					max = temp.length();
-					max_str = temp;
+					longest_pal = temp;
 				}
 			}
 		}
-		res.push_back({max_str,max});
-		return res;
+		return longest_pal;
 	}
 };
+
 int main(){
 	ios_base::sync_with_stdio(false);
 	string test = "xoxoxbaobab"; // 5 xoxox
-	for(auto &x : Solution::longestPalindrome(test)){
-		cout << x.first << " ";
-	}
+	cout << Solution::longestPalindrome(test);
 	return 0;
 }
