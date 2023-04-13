@@ -43,9 +43,7 @@ class Solution {
 int main(){
 	ios_base::sync_with_stdio(0);
 	cout.tie(0);
-	vector<vector<char>> board = {{'a','b','c','e'},
-								  {'s','f','c','s'},
-								  {'a','d','e','e'}};
+	vector<vector<char>> board = {{'a','b','c','e'},{'s','f','c','s'},{'a','d','e','e'}};
 	string word = "escc";
 	//cout << Solution::find(board,word) << endl;
 	for(auto x : Solution::find(board,word)) {
