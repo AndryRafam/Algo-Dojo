@@ -28,14 +28,14 @@ class Solution {
 			return false;
 		}
 		else {
-            char temp = board[i][j];
-            board[i][j] = '$'; // mark as visited
-            bool found = dfs(board,word,i+1,j,k+1) || 
-						 dfs(board,word,i-1,j,k+1) || 
-						 dfs(board,word,i,j+1,k+1) || 
-						 dfs(board,word,i,j-1,k+1);
-            board[i][j]=temp;
-            return found;
+			char temp = board[i][j];
+			board[i][j] = '$'; // mark as visited
+			bool found = dfs(board,word,i+1,j,k+1) || 
+				     dfs(board,word,i-1,j,k+1) || 
+			 	     dfs(board,word,i,j+1,k+1) || 
+			 	     dfs(board,word,i,j-1,k+1);
+			board[i][j]=temp;
+			return found;
 		}
 	}
 };
