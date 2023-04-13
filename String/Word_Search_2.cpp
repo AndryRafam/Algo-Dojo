@@ -15,14 +15,14 @@ class Solution{
     static vector<string> findWords(vector<vector<char>> &board, vector<string> &words){
         unordered_set<string> ust; // to ensure that there is no duplicate in the final result
         for(auto &word : words){
-			for(auto i(0); i < board.size(); ++i){
-				for(auto j(0); j < board[0].size(); ++j){
-					if(board[i][j]==word[0] && dfs(board,word,i,j,0)){
-						ust.insert(word);
-					}
+		for(auto i(0); i < board.size(); ++i){
+			for(auto j(0); j < board[0].size(); ++j){
+				if(board[i][j]==word[0] && dfs(board,word,i,j,0)){
+					ust.insert(word);
 				}
 			}
 		}
+	}
         return vector<string>(ust.begin(),ust.end());
     }
     private:
