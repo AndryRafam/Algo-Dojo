@@ -2,8 +2,9 @@
 Find the factorial of a given number n.
 
 Solution_1: Recursive solution, O(n) time complexity and O(n) space complexity.
-
 Solution_2: Dynamic programming, O(n) time complexity and O(n) space complexity.
+
+Both have the same time complexity, but the dynamic programming approach is more efficient in terms of space complexity.
 */
 
 #include <bits/stdc++.h>
