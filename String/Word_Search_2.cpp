@@ -17,7 +17,7 @@ class Solution{
         for(auto &word : words){
             for(auto i(0); i < board.size(); ++i){
                 for(auto j(0); j < board[0].size(); ++j){
-                    if(board[i][j]==word[0] && dfs(board,word,i,j,0)){
+                    if(dfs(board,word,i,j,0)){
                         ust.insert(word);
 		    }
 		}
