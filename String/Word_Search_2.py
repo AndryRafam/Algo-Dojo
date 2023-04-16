@@ -27,7 +27,7 @@ class Solution:
         for i in range(len(board)):
             for j in range(len(board[0])):
                 for k in range(len(words)):
-                    if board[i][j]==words[k][0] and dfs(board,words[k],i,j,0):
+                    if dfs(board,words[k],i,j,0):
                         ust.add(words[k])
         for x in ust:
             result.append(x)
