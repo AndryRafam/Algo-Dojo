@@ -10,15 +10,14 @@ using namespace std;
 class Solution {
 	public:
 	static vector<string> find(vector<vector<char>> &board, string word) {
-		unordered_set<string> result;
 		for(auto i(0); i!=(int)board.size(); ++i) {
 			for(auto j(0); j!=(int)board[i].size(); ++j) {
-				if(dfs(board,word,i,j,0)) {
-					result.insert(word);
+				if(dfs(board,word,i,j,0)){
+					return word;
 				}
 			}
 		}
-		return vector<string>(result.begin(),result.end());
+		return "NOT FOUND";
 	}
 	static bool dfs(vector<vector<char>> &board, string word, int i, int j, int k) {
 		if(k==(int)word.size()) {
@@ -45,8 +44,6 @@ int main(){
 	cout.tie(0);
 	vector<vector<char>> board = {{'a','b','c','e'},{'s','f','c','s'},{'a','d','e','e'}};
 	string word = "escc";
-	for(auto x : Solution::find(board,word)) {
-		cout << x << " ";
-	}
+	cout << Solution::find(board,word);
 	return 0;
 }
