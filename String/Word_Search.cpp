@@ -13,7 +13,7 @@ class Solution {
 		unordered_set<string> result;
 		for(auto i(0); i!=(int)board.size(); ++i) {
 			for(auto j(0); j!=(int)board[i].size(); ++j) {
-				if(board[i][j]==word[0] && dfs(board,word,i,j,0)) {
+				if(dfs(board,word,i,j,0)) {
 					result.insert(word);
 				}
 			}
