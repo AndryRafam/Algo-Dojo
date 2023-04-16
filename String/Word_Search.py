@@ -7,7 +7,7 @@ are horizontally or vertically neighboring. The same letter cell may not be used
 def exist(board,word):
     for i in range(len(board)):
         for j in range(len(board[i])):
-            if(board[i][j]==word[0] and dfs(board,word,i,j,0)):
+            if dfs(board,word,i,j,0):
                 return True
     return False
 
