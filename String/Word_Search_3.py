@@ -30,7 +30,7 @@ def wordSearch(grid:List[List[str]], words:List[str])->List[str]:
     for word in words:
         for i in range(len(grid)):
             for j in range(len(grid[0])):
-                if grid[i][j] == word[0] and dfs(grid,word,i,j,0):
+                if dfs(grid,word,i,j,0):
                     found_words.add(word)
     return list(found_words)
 
