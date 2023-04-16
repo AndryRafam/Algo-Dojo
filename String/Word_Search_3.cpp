@@ -49,7 +49,7 @@ class Solution{
         for(auto &word : words){
             for(auto i(0); i < grid.size(); ++i){
                 for(auto j(0); j < grid[0].size(); ++j){
-                    if(grid[i][j]==word[0] && dfs(grid,word,i,j,0)){
+                    if(dfs(grid,word,i,j,0)){
                         ust.insert(word);
                     }
                 }
