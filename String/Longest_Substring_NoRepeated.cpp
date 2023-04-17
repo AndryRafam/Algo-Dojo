@@ -11,15 +11,15 @@ Solution 2: Sliding window approach - Time complexity: O(N).
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution_1 {
+class Solution_1{
 	public:
-	static int lengthOfLongestSubstrNoRepeat(string &s) {
+	static int lengthOfLongestSubstrNoRepeat(string &s){
 		int max = 0;
 		int l = 1;
-		while(l < s.length()) {
-			for(int i(0); i <= s.length()-l; ++i) {
+		while(l < s.length()){
+			for(int i(0); i <= s.length()-l; ++i){
 				string temp = s.substr(i,l);
-				if(isUnique(temp)) {
+				if(isUnique(temp)){
 					max = temp.length();
 				}
 			}
@@ -28,12 +28,12 @@ class Solution_1 {
 		return max;
 	}
 	private:
-	static bool isUnique(string &a) {
+	static bool isUnique(string &a){
 		unordered_map<char,int> hash;
 		for(auto &x : a) {
 			hash[x]++;
 		}
-		if(hash.size()==a.length()) {
+		if(hash.size()==a.length()){
 			return true;
 		}
 		return false;
