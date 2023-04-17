@@ -1,15 +1,19 @@
 /*
 Given a string s, find the length of the longest substring without repeating characters.
 
-Time complexity: O(N³), where N is the length of the string.
+Let N, the length of the input string.
+
+Solution 1: Brute force approach - Time complexity: O(N³).
+
+Solution 2: Sliding window approach - Time complexity: O(N). 
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
+class Solution_1 {
 	public:
-	static int lengthOfLongestSubstring(string &s) {
+	static int lengthOfLongestSubstrNoRepeat(string &s) {
 		int max = 0;
 		int l = 1;
 		while(l < s.length()) {
@@ -36,9 +40,29 @@ class Solution {
 	}
 };
 
+class Solution_2{
+	public:
+	static int lengthOfLongestSubstrNoRepeat(string &s){
+		unordered_set<char> hashSet;
+		int l,r,max_len = 0;
+		while(r < s.size()){
+			if(hashSet.find(s[r])==hashSet.end()){
+				hashSet.insert(s[r]);
+				max_len = max(max_len,r-l+1);
+				r++;
+			}
+			else{
+				hashSet.erase(s[l]);
+				l++;
+			}
+		}
+		return max_len;
+	}
+};
+
 int main() {
 	ios_base::sync_with_stdio(false);
 	string s = "abcabcbb";
-	cout << Solution::lengthOfLongestSubstring(s);
+	cout << Solution_2::lengthOfLongestSubstrNoRepeat(s) << endl;
 	return 0;
 }
