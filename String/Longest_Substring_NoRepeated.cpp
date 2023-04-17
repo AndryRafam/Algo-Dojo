@@ -29,9 +29,9 @@ class Solution_1{
 	}
 	private:
 	static bool isUnique(string &a){
-		unordered_map<char,int> hash;
-		for(auto &x : a) {
-			hash[x]++;
+		unordered_set<char> hash;
+		for(auto &x : a){
+			hash.insert(x);
 		}
 		if(hash.size()==a.length()){
 			return true;
