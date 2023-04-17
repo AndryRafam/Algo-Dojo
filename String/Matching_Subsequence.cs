@@ -1,3 +1,6 @@
+/* Given string source and a dictionary of words words, return list of words[i] that is a subsequence of source.
+O(K*M*N) complexity where K is the size of words array*/
+
 using System;
 using System.Collections.Generic;
 
