@@ -36,7 +36,7 @@ class Solution{
 
 int main(){
 	ios_base::sync_with_stdio(false);
-	vector<vector<int>> grid = {{-2,-3,3},{-5,-10,1},{10,30,-5}};
+	vector<vector<int>> grid = {{1,3,1},{1,5,1},{4,2,1}};
 	cout << Solution::minPathSum(grid);
 	return 0;
 }
