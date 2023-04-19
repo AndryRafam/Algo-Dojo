@@ -5,13 +5,6 @@ All directions are allowed Up, Down, Right, Left.
 Print the solution if there is one, otherwise, print NO PATH.
 """
 
-"""
-Can you exit the maze ?
-Maze problem: Starting from top left corner, find a way to the bottom right corner.
-All directions are allowed Up, Down, Right, Left.
-Print the solution if there is one, otherwise, print NO PATH.
-"""
-
 def path(maze)->bool:
     N = len(maze)
     M = len(maze[0])
