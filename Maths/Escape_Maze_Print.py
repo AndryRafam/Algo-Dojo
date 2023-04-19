@@ -5,6 +5,13 @@ All directions are allowed Up, Down, Right, Left.
 Print the solution if there is one, otherwise, print NO PATH.
 """
 
+"""
+Can you exit the maze ?
+Maze problem: Starting from top left corner, find a way to the bottom right corner.
+All directions are allowed Up, Down, Right, Left.
+Print the solution if there is one, otherwise, print NO PATH.
+"""
+
 def path(maze)->bool:
     N = len(maze)
     M = len(maze[0])
@@ -19,7 +26,7 @@ def printPath(maze):
     for i in range(len(maze)):
         for j in range(len(maze[0])):
             print(maze[i][j], end="  ")
-        print("\n\n")
+        print("\n")
 
 def dfs(maze,x,y,sol)->bool:
     N = len(maze)
@@ -37,6 +44,7 @@ def dfs(maze,x,y,sol)->bool:
             if dfs(maze,x+dx[k],y+dy[k],sol):
                 sol[x][y]=9 # mark path as 9
                 return True
+    maze[x][y] = 1 # backtrack and unmark the cell as visited
     return False
 
 if __name__=="__main__":
@@ -46,4 +54,5 @@ if __name__=="__main__":
             [0, 0, 0, 1, 1],
             [1, 1, 0, 1, 0],
             [0, 0, 0, 1, 1]]
+    print("\n")
     path(maze)
