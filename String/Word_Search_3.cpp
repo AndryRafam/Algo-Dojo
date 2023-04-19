@@ -39,7 +39,7 @@ class Solution{
                          dfs(grid,word,i+1,j+1,pos+1) ||
                          dfs(grid,word,i-1,j-1,pos+1) ||
                          dfs(grid,word,i-1,j+1,pos+1);*/
-            grid[i][j] = temp;
+            grid[i][j] = temp; // backtrack and unmark cell as visited
             return found;
         }
     }
