@@ -40,7 +40,7 @@ class Solution{
                          dfs(board,word,i-1,j,pos+1) ||
                          dfs(board,word,i,j+1,pos+1) ||
                          dfs(board,word,i,j-1,pos+1);
-            board[i][j] = temp;
+            board[i][j] = temp; // backtrack and unmark cell as visited
             return found; 
         }
     }
