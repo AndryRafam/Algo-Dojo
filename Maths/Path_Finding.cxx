@@ -19,7 +19,7 @@ class Solution{
         return true;
     }
     static int heuristic(int x1, int y1, int x2, int y2){
-        return abs(x2-x1)+abs(y2-y1);
+        return abs(x2-x1)+abs(y2-y1); // manhattan distance; used when only 4 directions allowed.
     }
     public:
     static vector<Cell> A_star_Search(vector<vector<int>> &maze, int startX, int startY, int targetX, int targetY){
