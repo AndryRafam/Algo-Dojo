@@ -22,7 +22,7 @@ class Solution{
         return abs(x2-x1)+abs(y2-y1);
     }
     public:
-    static vector<Cell> bestFirstSearch(vector<vector<int>> &maze, int startX, int startY, int targetX, int targetY){
+    static vector<Cell> A_star_Search(vector<vector<int>> &maze, int startX, int startY, int targetX, int targetY){
         vector<vector<bool>> visited(maze.size(),vector<bool>(maze[0].size(),false));
         priority_queue<Cell> pq;
 
@@ -72,13 +72,13 @@ int main(){
     ios_base::sync_with_stdio(false);
     vector<vector<int>> maze = {
         {1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1},
-	{1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1},
-	{1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1},
-	{1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1},
-	{1,0,1,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1,0,1},
-	{1,0,1,0,1,0,0,0,1,0,0,0,0,0,1,1,1,1,0,1},
+		{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1},
+		{1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1},
+		{1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1},
+		{1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1},
+		{1,0,1,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1,0,1},
+		{1,0,1,0,1,0,0,0,1,0,0,0,0,0,1,1,1,1,0,1},
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1}
     };
     int M = maze.size();
@@ -86,7 +86,7 @@ int main(){
     int startX = 0, startY = 1;
     int targetX = M-1, targetY = N-2;
     
-    vector<Cell> path = Solution::bestFirstSearch(maze,startX,startY,targetX,targetY);
+    vector<Cell> path = Solution::A_star_Search(maze,startX,startY,targetX,targetY);
     
     cout << "\n";
     if(!path.empty()){
