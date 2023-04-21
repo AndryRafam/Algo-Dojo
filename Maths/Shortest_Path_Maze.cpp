@@ -1,3 +1,9 @@
+/*
+Shortest path in maze using BFS.
+
+Four directions allowed.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
