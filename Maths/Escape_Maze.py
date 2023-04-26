@@ -21,6 +21,7 @@ class Solution:
                 for k in range(4):
                     if dfs(maze,x+row[k],y+col[k]):
                         return True
+                maze[x][y] = 1 # backtrack and unmark the cell as visited
             return False
         
         if dfs(maze,0,0)==False:
