@@ -57,9 +57,9 @@ class Solution{
                     //sol[x][y]=9; // mark path as 9
                     return true;
                 }
-            }
-        }
-        maze[x][y] = 1; // backtrack and unmark the current cell as visited
+	    }
+	    maze[x][y] = 1; // backtrack and unmark the current cell as visited
+	}
         return false;
     } 
 };
