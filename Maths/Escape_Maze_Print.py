@@ -37,7 +37,7 @@ def dfs(maze,x,y,sol)->bool:
             if dfs(maze,x+dx[k],y+dy[k],sol):
                 sol[x][y]=9 # mark path as 9
                 return True
-    maze[x][y] = 1 # backtrack and unmark the cell as visited
+        maze[x][y] = 1 # backtrack and unmark the cell as visited
     return False
 
 if __name__=="__main__":
