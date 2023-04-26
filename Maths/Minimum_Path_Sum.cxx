@@ -23,7 +23,7 @@ class Solution{
 		}
 		//fill the 1st column
 		for(int i(1); i < N; ++i){
-			dp[i][0] = dp[i][0]+grid[i][0];
+			dp[i][0] = dp[i-1][0]+grid[i][0];
 		}
 		for(int i(1); i < M; ++i){
 			for(int j(1); j < N; ++j){
