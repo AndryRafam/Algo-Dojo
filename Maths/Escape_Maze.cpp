@@ -28,8 +28,8 @@ class Solution{
 					return true;
 				}
 			}
+			maze[x][y] = 1; // backtrack and unmark the cell as visited
 		}
-		maze[x][y] = 1; // backtrack and unmark the cell as visited
 		return false;
 	}
 	static bool path(vector<vector<int>> &maze){
