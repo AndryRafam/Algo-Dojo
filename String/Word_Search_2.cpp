@@ -8,8 +8,8 @@ The same letter cell may not be used more than once in a word.
 #include <bits/stdc++.h>
 using namespace std;
 
-// Brute force approach
-class Solution_1{
+// Recursive DFS
+class Solution1{
     public:
     static vector<string> findWords(vector<vector<char>> &board, vector<string> &words){
         unordered_set<string> ust; // to ensure that there is no duplicate in the final result
