@@ -31,9 +31,9 @@ class Solution1 {
             char temp = board[i][j];
             board[i][j] = '$'; // mark as visited
             bool found = dfs(board,word,i+1,j,k+1) || 
-						 		 dfs(board,word,i-1,j,k+1) || 
-						 		 dfs(board,word,i,j+1,k+1) || 
-						 		 dfs(board,word,i,j-1,k+1);
+			 dfs(board,word,i-1,j,k+1) || 
+			 dfs(board,word,i,j+1,k+1) || 
+			 dfs(board,word,i,j-1,k+1);
             board[i][j]=temp;
             return found;
 		}
@@ -51,7 +51,7 @@ class Solution2{
         vector<vector<bool>> visited(grid.size(),vector<bool>(grid[0].size(),false));
         stack<Node> st;
         st.push(start);
-        visited[start.x][start.y];
+        visited[start.x][start.y] = true;
         while(!st.empty()){
             Node cur = st.top();
             st.pop();
