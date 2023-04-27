@@ -7,8 +7,8 @@ All directions are allowed Up, Down, Right, Left.
 #include <bits/stdc++.h>
 using namespace std;
 
-
-class Solution{
+// Recursive DFS
+class Solution1{
 	public:
 	static bool dfs(vector<vector<int>> &maze, int x, int y){
 		int N = maze.size();
@@ -40,6 +40,49 @@ class Solution{
 	}
 };
 
+// Iterative DFS
+struct Cell{
+	int x,y;
+};
+
+class Solution2{
+	public:
+	static bool DFS(vector<vector<int>> &maze, Cell start, Cell goal){
+		vector<vector<bool>> visited(maze.size(),vector<bool>(maze[0].size(),false));
+		stack<Cell> st;
+		st.push(start);
+		visited[start.x][start.y]=true;
+
+		while(!st.empty()){
+			Cell cur = st.top();
+			st.pop();
+			if(cur.x==goal.x and cur.y==goal.y){
+				return true;
+			}
+			vector<pair<int,int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+			for(auto &dir : directions){
+				int newX = cur.x+dir.first;
+				int newY = cur.y+dir.second;
+				if(isValid(maze,newX,newY) && !visited[newX][newY]){
+					visited[newX][newY] = true;
+					Cell next = {newX,newY};
+					st.push(next);
+				}
+			}
+		}
+		return false;
+	}
+	private:
+	static bool isValid(vector<vector<int>> &maze, int x, int y){
+		int m = maze.size();
+		int n = maze[0].size();
+		if(x < 0 or x >= m or y < 0 or y >= n or maze[x][y]!=0){
+			return false;
+		}
+		return true;
+	}
+};
+
 int main(){
 	ios_base::sync_with_stdio(false);
 	cout.tie(0);
@@ -48,8 +91,16 @@ int main(){
 				    {0, 1, 1, 1, 0, 1},
 				    {0, 0, 1, 0, 1, 1},
 				    {0, 0, 1, 0, 1, 0},
-				    {0, 0, 1, 0, 1, 1}}; // True in this example
+				    {0, 0, 1, 0, 1, 1}};
+	
+	vector<vector<int>> grid = {{1, 0, 0, 1, 1, 1},
+				    {1, 1, 0, 1, 0, 1},
+				    {0, 1, 1, 1, 0, 1},
+				    {0, 0, 1, 0, 1, 1},
+				    {0, 0, 1, 0, 1, 0},
+				    {0, 0, 1, 0, 1, 1}};
 								
-	cout << (Solution::path(maze)==1 ? "True":"False") << endl;
+	cout << (Solution1::path(maze)==1 ? "True":"False") << endl; // True
+	cout << (Solution2::DFS(grid)==1 ? "True":"False") << endl; // True
 	return 0;
 }
