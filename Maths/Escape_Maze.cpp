@@ -149,6 +149,9 @@ int main(){
 	Cell start = {0,1};
 	Cell goal = {m-1,n-2};
 	
+	/*pair<int,int> start = {0,1};
+	  pair<int,int> goal = {m-1,n-2};*/
+	
 	cout << (Solution2::DFS(grid,start,goal)==1 ? "True":"False") << endl; // True
 	return 0;
 }
