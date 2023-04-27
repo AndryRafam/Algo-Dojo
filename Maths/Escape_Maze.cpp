@@ -11,14 +11,14 @@ using namespace std;
 class Solution1{
 	public:
 	static bool dfs(vector<vector<int>> &maze, int x, int y){
-		int N = maze.size();
-		int M = maze[0].size();
+		int m = maze.size();
+		int n = maze[0].size();
 		vector<int> row = {-1,0,0,1};
 		vector<int> col = {0,-1,1,0};
-		if(x<0 || x>=N || y<0 || y>=M || maze[x][y]!=1){
+		if(x<0 || x>=m || y<0 || y>=n || maze[x][y]!=1){
 			return false;
 		}
-		if(x==N-1 && y==M-1){
+		if(x==m-1 && y==n-1){
 			return true;
 		}
 		else if(maze[x][y]==1){
