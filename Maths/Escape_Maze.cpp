@@ -83,6 +83,45 @@ class Solution2{
 	}
 };
 
+/*Iterative DFS, alternative implementation
+class Solution2{
+	public:
+	static bool DFS(vector<vector<int>> &maze, pair<int,int> start, pair<int,int> goal){
+		vector<vector<bool>> visited(maze.size(),vector<bool>(maze[0].size(),false));
+		stack<pair<int,int>> st;
+		st.push(start);
+		visited[start.first][start.second]=true;
+
+		while(!st.empty()){
+			auto cur = st.top();
+			st.pop();
+			if(cur.first==goal.first and cur.second==goal.second){
+				return true;
+			}
+			vector<pair<int,int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+			for(auto &dir : directions){
+				int newX = cur.first+dir.first;
+				int newY = cur.second+dir.second;
+				if(isValid(maze,newX,newY) && !visited[newX][newY]){
+					visited[newX][newY] = true;
+					pair<int,int> next = {newX,newY};
+					st.push(next);
+				}
+			}
+		}
+		return false;
+	}
+	private:
+	static bool isValid(vector<vector<int>> &maze, int x, int y){
+		int m = maze.size();
+		int n = maze[0].size();
+		if(x < 0 or x >= m or y < 0 or y >= n or maze[x][y]!=0){
+			return false;
+		}
+		return true;
+	}
+};*/
+
 int main(){
 	ios_base::sync_with_stdio(false);
 	cout.tie(0);
