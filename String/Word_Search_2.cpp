@@ -92,7 +92,7 @@ int main(){
                                   {'i','f','l','v'}};
 
     vector<string> words = {"oath","pea","eat","rain"};
-    for(auto &x : Solution_1::findWords(board,words)){
+    for(auto &x : Solution1::findWords(board,words)){
         cout << x << " ";
     }
 
