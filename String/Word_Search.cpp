@@ -31,10 +31,10 @@ class Solution1 {
             char temp = board[i][j];
             board[i][j] = '$'; // mark as visited
             bool found = dfs(board,word,i+1,j,k+1) || 
-			 dfs(board,word,i-1,j,k+1) || 
-			 dfs(board,word,i,j+1,k+1) || 
-			 dfs(board,word,i,j-1,k+1);
-            board[i][j]=temp;
+						 		 dfs(board,word,i-1,j,k+1) || 
+						 		 dfs(board,word,i,j+1,k+1) || 
+						 		 dfs(board,word,i,j-1,k+1);
+            board[i][j]=temp; // backtrack
             return found;
 		}
 	}
@@ -84,16 +84,58 @@ class Solution2{
     } 
 };
 
+// BFS
+struct Cell{
+    int x,y,index;
+};
+
+class Solution3{
+    private:
+    static bool isValid(vector<vector<char>> &grid, int x, int y, string word, int index){
+        int m = grid.size();
+        int n = grid[0].size();
+        if(x >= 0 and x < m and y >= 0 and y < n and grid[x][y]==word[index]){
+            return true;
+        }
+        return false;
+    }
+    public:
+    static bool BFS(vector<vector<char>> &grid, string word, Cell start){
+        vector<vector<bool>> visited(grid.size(),vector<bool>(grid[0].size(),false));
+        queue<Cell> Q;
+        Q.push(start);
+        visited[start.x][start.y] = true;
+        while(!Q.empty()){
+            auto cur = Q.front();
+            Q.pop();
+            if(cur.index==word.length()){
+                return true;
+            }
+            vector<int> dx = {-1,0,0,1};
+            vector<int> dy = {0,-1,1,0};
+            for(auto i(0); i < 4; ++i){
+                int newX = cur.x+dx[i];
+                int newY = cur.y+dy[i];
+                if(isValid(grid,newX,newY,word,cur.index) and !visited[newX][newY]){
+                    visited[newX][newY] = true;
+                    Q.push({newX,newY,cur.index+1});
+                }
+            }
+        }
+        return false;
+    }
+};
+
 int main(){
 	ios_base::sync_with_stdio(0);
 	cout.tie(0);
 	vector<vector<char>> board = {{'a','b','c','e'},
 				      {'s','f','c','s'},
 				      {'a','d','e','e'}};
-	string word = "css";
+	string word = "abcced";
 	//cout << Solution1::find(board,word);
 	
-	for(auto i(0); i < board.size(); ++i){
+	/*for(auto i(0); i < board.size(); ++i){
         for(auto j(0); j < board[0].size(); ++j){
             Node start = {i,j,0};
             if(Solution2::DFS(board,word,start)){
@@ -101,7 +143,17 @@ int main(){
             }
         }
     }
+    cout << "NOT FOUND" << endl;*/
+    
+    for(auto i(0); i < board.size(); ++i){
+        for(auto j(0); j < board[0].size(); ++j){
+            Cell start = {i,j,0};
+            if(Solution3::BFS(board,word,start)){
+                cout << word << endl;
+                return 0;
+            }
+        }
+    }
     cout << "NOT FOUND" << endl;
-	
 	return 0;
 }
