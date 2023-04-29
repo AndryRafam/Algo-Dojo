@@ -3,12 +3,12 @@ Given a number n, we consider the sequence of numbers such that n is followed
 by the sum of n and all of its digits. n-> n+sumOfDigits(n).
 For example: 34 is followed by 41 = 34+(3+4).
 
-Our task is the following: given to number s1 and s2, find the intersection number,
+Our task is the following: given two number s1 and s2, find the intersection number,
 of s1 and s2.
 For example: 471 -> 483 (471+4+7+1) -> 498 (483+4+8+3) -> 519 (498+4+9+8)
              480 -> 492 (480+4+8+0) -> 507 (492+4+9+2) -> 519 (507+5+0+7)
 
-The intersection point of 471 and 480 is 519.
+The intersection number of 471 and 480 is 519.
 */
 
 #include <bits/stdc++.h>
