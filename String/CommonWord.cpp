@@ -6,7 +6,6 @@ Time complexity: O(m+n+k); where m is the length of s0, n is the length of s1 an
 in the first sentence.
 */
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
