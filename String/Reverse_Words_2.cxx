@@ -9,7 +9,6 @@ using namespace std;
 
 void reverse_word(string &s){
     stack<string> st;
-    //string str = "";
     istringstream iss(s);
     string word;
     while(iss >> word){
