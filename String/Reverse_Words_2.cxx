@@ -9,17 +9,12 @@ using namespace std;
 
 void reverse_word(string &s){
     stack<string> st;
-    string str = "";
-    for (int i = 0; i < s.length(); i++){
-        if(s[i]==' '){
-            st.push(str);
-            str = "";
-        }
-        else
-            str += s[i];
+    //string str = "";
+    istringstream iss(s);
+    string word;
+    while(iss >> word){
+        st.push(word);
     }
-    st.push(str);
-
     while(!st.empty()){
         cout << st.top() << " ";
         st.pop();
