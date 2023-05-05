@@ -68,6 +68,6 @@ int main(){
     string s0 = "hello world hello oyster";
     string s1 = "world is your oyster";
     cout << countCommonWords(s0,s1) << endl; // 2
-    cout << solve(s0,s1) << endl;
+    cout << solve(s0,s1) << endl; // 2
     return 0;
 }
