@@ -29,16 +29,16 @@ class Solution{
             arr_unique.emplace_back(c);
         }
         sort(arr_unique.begin(),arr_unique.end());
-        
-        int l = 0; // left pointer
-        int max_continous = 0; // length of the maximum continous range
-        for(auto r(n-1); r >= 0; --r){
-            while(arr_unique[r]-arr_unique[l] >= n){
+        int m = arr_unique.size();
+        int l = 0;
+        int ans = n;
+        for(auto r(0); r < m; ++r){
+            while(l < m and arr_unique[l] < arr_unique[r]+n){
                 ++l;
             }
-            max_continous = max(max_continous,r-l+1);
+            ans = min(ans,n-l+r);
         }
-        return n-max_continous;
+        return ans;
     }
 };
 
