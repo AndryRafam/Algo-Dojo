@@ -9,7 +9,8 @@ Nums is considered continuous if both of the following conditions are fulfilled:
 For example, nums = [4, 2, 5, 3] is continuous, but nums = [1, 2, 3, 5, 6] is not continuous.
 Return the minimum number of operations to make nums continuous.
 
-Time complexity: 
+Time complexity: O(M)+O(N*LogN) = O(M+N*LogN); where M is the size of the array nums; N is the size of the array
+of unique elements.
 */
 
 #include <bits/stdc++.h>
