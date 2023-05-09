@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/Code-C++-important.svg?style=plastic&logo=c%2B%2B)
+![](https://img.shields.io/badge/Algorithm-ALGO-important.svg?style=plastic)
+
 #### (Formerly known as CODING-PRACTICE)
 
 This repository contains programming problems that I practice/tackle with my students.
