@@ -1,5 +1,5 @@
-![](https://img.shields.io/badge/Code-C++-important.svg?style=plastic&logo=c%2B%2B)
-![](https://img.shields.io/badge/Algorithm-ALGO-important.svg?style=plastic)
+![](https://img.shields.io/badge/Code-C++-important.svg?style=for-the-badge&logo=c%2B%2B)
+![](https://img.shields.io/badge/Algorithm-ALGO-important.svg?style=for-the-badge)
 
 #### (Formerly known as CODING-PRACTICE)
 
