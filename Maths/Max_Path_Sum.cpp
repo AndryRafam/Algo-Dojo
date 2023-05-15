@@ -22,10 +22,10 @@ class Solution{
         }
         // fill the 1st col
         for(auto j(1); j < n; ++j){
-            sum[0][j] = arr[j][0]+sum[0][j-1];
+            sum[0][j] = arr[0][j]+sum[0][j-1];
         }
-        for(auto i(1); i < n; ++i){
-            for(auto j(1); j < m; ++j){
+        for(auto i(1); i < m; ++i){
+            for(auto j(1); j < n; ++j){
                 sum[i][j] = max(sum[i-1][j],sum[i][j-1])+arr[i][j];
             }
         }
