@@ -16,11 +16,11 @@ class Solution{
         int n = arr[0].size();
         vector<vector<int>> sum(m,vector<int>(n,0));
         sum[0][0] = arr[0][0];
-        // fill the 1st row
+        // fill the 1st col
         for(auto i(1); i < m; ++i){
             sum[i][0] = arr[i][0]+sum[i-1][0];
         }
-        // fill the 1st col
+        // fill the 1st row
         for(auto j(1); j < n; ++j){
             sum[0][j] = arr[0][j]+sum[0][j-1];
         }
