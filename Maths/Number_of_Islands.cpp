@@ -28,7 +28,7 @@ class Solution{
     static void dfs(vector<vector<int>> &grid, int i, int j, int color){
         int N = grid.size();
         int M = grid[0].size();
-        if(i < 0 || i >= N || j < 0 || j >= M || grid[i][j]==0){
+        if(i < 0 || i >= N || j < 0 || j >= M || grid[i][j]==0 || grid[i][j]==color){
             return;
         }
         vector<pair<int,int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
