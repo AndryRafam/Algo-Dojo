@@ -6,41 +6,44 @@ O(|s|+|t|) time complexity, where s is a pattern and t is a text */
 using namespace std;
 
 class Solution{
-    public:
-    static vector<int> RK(string const &s, string const &t){
-        const int p = 53;
-        const int mod = 1e9 + 7;
-        int m = s.size(), n = t.size();
-
-        vector<long long> p_pow(max(m,n));
-        p_pow[0]=1;
-        for(auto i = 1; i < (int)p_pow.size(); i++)
-            p_pow[i]=(p_pow[i-1]*p)%mod;
-        
-        vector<long long> h(n+1,0);
-        for(auto i = 0; i < n; i++)
-            h[i+1] = (h[i]+(t[i]-'a'+1)*p_pow[i])%mod; // polynomial rolling hash function of t
-        long long h_s = 0;
-        for(auto i = 0; i < m; i++)
-            h_s = (h_s+(s[i]-'a'+1)*p_pow[i])%mod; // polynomial rolling hash function of s
-        
-        vector<int> occur;
-        for(auto i = 0; i+m-1 < n; i++){
-            long long cur_h = (h[i+m]+mod-h[i])%mod;
-            if(cur_h == h_s*p_pow[i]%mod)
-                occur.emplace_back(i);
-        }
-        return occur;
-    }
+	public:
+	static vector<int> rabinKarp(string const& s, string const& t){
+		const int p = 31; // we consider english lowercase character only
+		const int m = 1e9+9;
+		int S = s.size(), T = t.size();
+		
+		vector<long long> p_pow(max(S,T));
+		p_pow[0] = 1;
+		for(int i = 1; i < T; ++i){
+			 p_pow[i] = (p_pow[i-1] * p) % m;
+		}
+		
+		vector<long long> h(T + 1, 0); 
+		for (int i = 0; i < T; i++){
+			h[i+1] = (h[i] + (t[i] - 'a' + 1) * p_pow[i]) % m;
+		}
+		long long h_s = 0;
+		for(int i = 0; i < S; ++i){
+			h_s = (h_s + (s[i] - 'a' + 1)*p_pow[i]) % m;
+		}
+		
+		vector<int> occurences;
+		for(int i = 0; i+S-1 < T; ++i){
+			long long cur_h = (h[i+S] + m - h[i]) % m;
+			if(cur_h == h_s*p_pow[i] % m){
+				occurences.push_back(i);
+			}
+		}
+		return occurences; 
+	}
 };
 
 int main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-    string const &s = "geko";
-    string const &t = "gekoisgekoman";
-    for(auto &x : Solution::RK(s,t))
-        cout << x << " ";
-    cout << endl;
-    return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+	string s; cin >> s;
+	string t; cin >> t;
+	for(auto &x : Solution::rabinKarp(s,t))
+		cout << x << " ";
+	return 0;
 }
