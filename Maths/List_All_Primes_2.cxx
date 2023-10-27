@@ -9,32 +9,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
-	public:
-	static vector<int> listAllPrimes(int n){
-		vector<int> primes;
-		vector<bool> is_prime(n+1,true);
-		is_prime[0] = is_prime[1] = false;
-		
-		for(auto p(2); p <= n; p++){ 
-			if(is_prime[p]){
-				primes.emplace_back(p);
-			}
-			// sieve p multiples
-			for(auto j(p); j <=n; j+=p){ 
-				is_prime[j] = false;
-			}
+vector<int> allprimes(int n){
+	vector<int> primes;
+	vector<bool> is_prime(n+1,true);
+	is_prime[0] = is_prime[1] = false;
+	for(int p(2); p<=n; p++){
+		if(is_prime[p]){
+			primes.emplace_back(p);
 		}
-		return primes;
+		for(int j(p); j<=n; j+=p){
+			is_prime[j] = false;
+		}
 	}
-};
-// driver program
+	return primes;
+}
+
 int main(){
-	ios_base::sync_with_stdio(false);
 	int n;
-	cin >> n;
-	for(auto &k : Solution::listAllPrimes(n)){
-		cout << k << " ";
+	scanf("%d",&n);
+	for(int x:allprimes(n)){
+		printf("%d ",x);
 	}
 	return 0;
 }
