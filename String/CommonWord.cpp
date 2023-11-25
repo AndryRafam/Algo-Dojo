@@ -15,7 +15,7 @@ int solve(string s0, string s1){
     string str0 = "";
     string str1 = "";
     vector<string> vec;
-    for(auto i(0); i < s0.size(); ++i){
+    for(size_t i(0); i < s0.size(); ++i){
         if(s0[i]==' '){
             ust.insert(str0);
             str0="";
@@ -25,7 +25,7 @@ int solve(string s0, string s1){
         }
     }
     ust.insert(str0);
-    for(auto j(0); j < s1.size(); ++j){
+    for(size_t j(0); j < s1.size(); ++j){
         if(s1[j]==' '){
             vec.emplace_back(str1);
             str1="";
@@ -65,9 +65,10 @@ int countCommonWords(string s0, string s1){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false);
     string s0 = "hello world hello oyster";
     string s1 = "world is your oyster";
-    cout << countCommonWords(s0,s1) << endl; // 2
-    cout << solve(s0,s1) << endl; // 2
+    cout << countCommonWords(s0,s1) << "\n"; // 2
+    cout << solve(s0,s1) << "\n";
     return 0;
 }
