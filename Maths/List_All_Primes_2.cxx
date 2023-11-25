@@ -13,11 +13,11 @@ vector<int> allprimes(int n){
 	vector<int> primes;
 	vector<bool> is_prime(n+1,true);
 	is_prime[0] = is_prime[1] = false;
-	for(int p(2); p<=n; p++){
+	for(size_t p = 2; p<=n; p++){
 		if(is_prime[p]){
 			primes.emplace_back(p);
 		}
-		for(int j(p); j<=n; j+=p){
+		for(size_t j = p; j<=n; j+=p){
 			is_prime[j] = false;
 		}
 	}
@@ -25,10 +25,11 @@ vector<int> allprimes(int n){
 }
 
 int main(){
+	ios_base::sync_with_stdio(false);
 	int n;
 	scanf("%d",&n);
-	for(int x:allprimes(n)){
-		printf("%d ",x);
+	for(size_t x:allprimes(n)){
+		cout << x << " ";
 	}
 	return 0;
 }
