@@ -11,28 +11,25 @@ Time complexity of O(n) and a space complexity of O(1); where n is the size of t
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
-    public:
-    static int maxSubArraySum(const vector<int> &arr, int k){
-        if(k > arr.size()){
-            k = arr.size();
-        }
-        int window_sum = 0;
-        for(auto i(0); i < k; ++i){
-            window_sum += arr[i];
-        }
-        int max_sum = window_sum;
-        for(auto i(0); i < arr.size()-k; ++i){
-            window_sum = window_sum - arr[i] + arr[i+k];
-            max_sum = max(window_sum,max_sum);
-        }
-        return max_sum;
+int maxSubArraySum(vector<int> arr, int k){
+    if(k > arr.size()){
+        k = arr.size();
     }
-};
+    int window_sum = 0;
+    for(size_t i = 0; i < k; ++i){
+        window_sum += arr[i];
+    }
+    int max_sum = window_sum;
+    for(size_t i = 0; i < arr.size()-k; ++i){
+        window_sum = window_sum - arr[i]+arr[i+k];
+        max_sum = max(window_sum,max_sum);
+    }
+    return max_sum;
+}
 
 int main(){
     ios_base::sync_with_stdio(false);
     vector<int> arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    cout << Solution::maxSubArraySum(arr,4) << "\n";
+    cout << maxSubArraySum(arr,4) << "\n";
     return 0;
 }
