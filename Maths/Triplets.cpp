@@ -1,5 +1,7 @@
-/*Given an array of distinct integers. 
-The task is to count all the triplets such that sum of two elements equals the third element.*/
+/*
+Given an array of distinct integers. 
+The task is to count all the triplets such that sum of two elements equals the third element.
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
