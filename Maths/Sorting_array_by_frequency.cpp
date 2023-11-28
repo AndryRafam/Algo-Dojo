@@ -25,10 +25,8 @@ void sortByFrequency(vector<int> arr){
     }
     sort(freqPairs.begin(),freqPairs.end(),compare);
     for(auto &z : freqPairs){
-        int num = z.first;
-        int freq = z.second;
-        for(auto i = 0; i < freq; ++i){
-            cout << num << " ";
+        for(auto i = 0; i < z.second; ++i){
+            cout << z.first << " ";
         }
     }
     cout << "\n";
