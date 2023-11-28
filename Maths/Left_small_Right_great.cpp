@@ -23,7 +23,7 @@ int findElement(vector<int> arr){
         minRight[i]=min(minRight[i+1],arr[i+1]);
     }
     // check for the element if it exist
-    for(auto i = 1; i <n-1; ++i){
+    for(auto i = 1; i < n-1; ++i){
         if(arr[i]>=maxLeft[i]&&arr[i]<=minRight[i]){
             return arr[i];
         }
