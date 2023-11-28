@@ -4,27 +4,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
-    public:
-    static void freq (vector<string> vec){
-	priority_queue<pair<string,int>> pq;        
+void freq(vector<string> vec){
+	priority_queue<pair<int,string>> pq;
 	unordered_map<string,int> hash;
-        for(auto &x : vec)
-            hash[x]++;
-	for(auto &y : hash)
-		pq.push({y.first,y.second});
+	for(auto x : vec){
+		hash[x]++;
+	}
+	for(auto y : hash){
+		pq.push({y.second,y.first});
+	}
 	if(!pq.empty()){
-		cout << pq.top().first << endl;
-		pq.pop();
+		cout << pq.top().second.c_str();
 	}
 	return;
-    }
-};
+}
 
 int main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-    vector<string> vec = {"jones","paul","jones","jones","peter","peter","jackson","peter"};
-    Solution::freq(vec);
-    return 0;
+	ios_base::sycn_with_stdio(false);
+	vector<string> vec = {"jones","paul","jones","jones","peter","peter","jackson","peter"};
+	freq(vec);
+	return 0;
 }
