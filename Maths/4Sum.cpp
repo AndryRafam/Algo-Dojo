@@ -6,15 +6,13 @@ Given an array nums of n integers, return an array of all the unique quadruplets
 0 <= a, b, c, d < n
 a, b, c, and d are distinct.
 nums[a] + nums[b] + nums[c] + nums[d] == target
-
-In this approach, we are using a set, so that we can assure the unicity of solution (no duplicate).
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 
-set<vector<int>> fourSum(vector<int> &nums, int target){
-    set<vector<int>> st;
+vector<vector<int>> fourSum(vector<int> &nums, int target){
+    vector<vector<int>> st;
     if(nums.size() < 4){
         return st;
     }
@@ -26,7 +24,7 @@ set<vector<int>> fourSum(vector<int> &nums, int target){
             while(lp < rp){
                 int tmp = nums[i]+nums[j]+nums[lp]+nums[rp];
                 if(tmp==target){
-                    st.insert({nums[i],nums[j],nums[lp],nums[rp]});
+                    st.push_back({nums[i],nums[j],nums[lp],nums[rp]});
                     lp++;
                     rp--;
                 }
