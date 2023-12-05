@@ -11,8 +11,8 @@ nums[a] + nums[b] + nums[c] + nums[d] == target
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> fourSum(vector<int> &nums, int target){
-    vector<vector<int>> st;
+set<vector<int>> fourSum(vector<int> &nums, int target){
+    set<vector<int>> st;
     if(nums.size() < 4){
         return st;
     }
@@ -24,7 +24,7 @@ vector<vector<int>> fourSum(vector<int> &nums, int target){
             while(lp < rp){
                 int tmp = nums[i]+nums[j]+nums[lp]+nums[rp];
                 if(tmp==target){
-                    st.push_back({nums[i],nums[j],nums[lp],nums[rp]});
+                    st.insert({nums[i],nums[j],nums[lp],nums[rp]});
                     lp++;
                     rp--;
                 }
