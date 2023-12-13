@@ -15,39 +15,34 @@ Brute force approach: O(N²*k), where N in the size of the input array and k is 
 #include <bits/stdc++.h>
 using namespace std;
 
-bool pair_pal(string s) {
-	unordered_map<char,int> hash;
-	for(auto x : s) {
-		hash[x]++;
-	}
-	int odd_ct = 0;
-	for(auto y : hash) {
-		if(y.second&1)
-			odd_ct++;
-	}
-	return (odd_ct <= 1) ? true:false; /*if there is more than one extra character in the string
-										  the string cannot be a permutation palindrome*/
+bool isPalindrome(string s) {
+	string rev = s;
+	reverse(rev.begin(), rev.end());
+	return rev==s;
 }
 
-int main(int argc, char **argv) {
-	ios_base::sync_with_stdio(false);
-	int count = 0;
-	int n;
-	string s;
-	cin >> n;
-	vector<string> arr;
-
-	for(auto i(0); i < n; ++i) {
-		cin >> s;
-		arr.emplace_back(s);
-	}
-	for(auto i(0); i < arr.size()-1; ++i) {
-		for(auto j(i+1); j <= arr.size()-1; ++j) {
-			if(pair_pal(arr[i]+arr[j])) {
-				count++;
+vector<vector<int>> palindromePairs(vector<string>& words) {
+	int n = words.size();
+	vector<vector<int>> res;
+	for(int i = 0; i < n; ++i) {
+		for(int j = 0; j < n; ++j) {
+			string str = words[i]+words[j];
+			if(isPalindrome(str) && i!=j) {
+				res.push_back({i,j});
 			}
 		}
 	}
-	cout << count << "\n";
+	return res;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	vector<string> words = {"abcd","dcba","lls","s","sssll"};
+	for(auto x : palindromePairs(words)) {
+		for(auto y : x) {
+			cout << y << " ";
+		}
+		cout << "\n";
+	}
 	return 0;
 }
