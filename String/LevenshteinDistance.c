@@ -7,7 +7,7 @@
 
 #define LIM 100000
 
-int levenshteinDistance(char s[LIM], char t[LIM]) {
+int levenshteinDistance(char *s, char *t) {
     int m = strlen(s);
     int n = strlen(t);
     int dp[m+1][n+1];
@@ -28,10 +28,12 @@ int levenshteinDistance(char s[LIM], char t[LIM]) {
 }
 
 int main() {
-    char s[LIM];
-    char t[LIM];
+    char *s = malloc(LIM*sizeof(char));
+    char *t = malloc(LIM*sizeof(char));
     fgets(s,LIM,stdin);
     fgets(t,LIM,stdin);
     printf("%d\n",levenshteinDistance(s,t));
+    free(s);
+    free(t);
     return 0;
 }
