@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-template <typename T>
-T ranges(vector<T>& A) {
+// If not C++20 standard, uncomment this section.
+/*template <typename T>
+T traverse(vector<T>& A) {
     T max = A[0];
     for(size_t i = 0; i < A.size(); ++i) {
         if(A[i] > max) {
@@ -11,7 +13,7 @@ T ranges(vector<T>& A) {
         }
     }
     return max;
-} 
+}*/
 
 class Solution {
     public:
@@ -20,7 +22,9 @@ class Solution {
         int r = mat.size()-1;
         while(l < r) {
             int m  = (l+r) >> 1;
-            if(ranges(mat[m]) >= ranges(mat[m+1])) {
+            // If not C++20 standard, uncomment this section.
+            /*if(traverse(mat[m]) >= traverse(mat[m+1]))*/
+            if(ranges::max(mat[m]) >= ranges::max(mat[m+1])) {
                 r=m;
             } else {
                 l=m+1;
