@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-// If not C++20 standard, uncomment this section.
+// If not C++20 standard or above, uncomment this section.
 
 /*template <typename T>
 T traverse(vector<T>& A) {
@@ -23,7 +23,7 @@ class Solution {
         int r = mat.size()-1;
         while(l < r) {
             int m  = (l+r) >> 1;
-            // If not C++20 standard, uncomment this section.
+            // If not C++20 standard or above, uncomment this section.
             /*if(traverse(mat[m]) >= traverse(mat[m+1]))*/
             if(ranges::max(mat[m]) >= ranges::max(mat[m+1])) {
                 r=m;
