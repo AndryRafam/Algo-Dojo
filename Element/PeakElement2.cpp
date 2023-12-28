@@ -4,6 +4,7 @@
 using namespace std;
 
 // If not C++20 standard, uncomment this section.
+
 /*template <typename T>
 T traverse(vector<T>& A) {
     T max = A[0];
