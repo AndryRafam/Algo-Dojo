@@ -2,6 +2,17 @@
 #include <vector>
 using namespace std;
 
+template <typename T>
+T ranges(vector<T>& A) {
+    T max = A[0];
+    for(size_t i = 0; i < A.size(); ++i) {
+        if(A[i] > max) {
+            max=A[i];
+        }
+    }
+    return max;
+} 
+
 class Solution {
     public:
     static vector<int> findPeakGrid(vector<vector<int>>& mat) {
@@ -26,16 +37,6 @@ class Solution {
             }
         }
         return res.first;
-    }
-    private:
-    static int ranges(vector<int>& A) {
-        int max = A[0];
-        for(size_t i = 0; i < A.size(); ++i) {
-            if(A[i] > max) {
-                max=A[i];
-            }
-        }
-        return max;
     }
 };
 
