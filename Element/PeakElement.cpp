@@ -1,3 +1,5 @@
+/*Time Complexity: O(logN); where N is the size of the array.*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
