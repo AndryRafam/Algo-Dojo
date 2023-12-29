@@ -1,4 +1,4 @@
-// Word breaking O(N³) complexity (Dynamic programming)
+// Word breaking O(N³) time complexity (Dynamic programming)
 
 #include <iostream>
 #include <vector>
