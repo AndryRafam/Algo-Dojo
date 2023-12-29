@@ -1,31 +1,33 @@
 // Word breaking O(N³) complexity (Dynamic programming)
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_set>
 using namespace std;
 
-class Solution{
+class Solution {
     public:
-    static bool word_break(string s, vector<string> &dict, vector<int> &dp){
-        int n = s.size();
-        if(n==0)
-            return true;
-        if(dp[n]==-1){
-            dp[n]=false;
-            for(auto i = 1; i <= n; i++){
-                if(find(dict.begin(),dict.end(),s.substr(0,i)) != dict.end() && word_break(s.substr(i),dict,dp))
-                    dp[n]=true;
+    static bool wordBreak(string s, vector<string>& wordDict) {
+        const int n = s.length();
+        unordered_set<string> wordSet({wordDict.begin(),wordDict.end()});
+        vector<bool> dp(n+1);
+        for(int i = 1; i <= n; ++i) {
+            for(int j = 0; j < i; ++j) {
+                if(dp[j] && wordSet.count(s.substr(j,i-j))) {
+                    dp[i]=true;
+                    break;
+                }
             }
         }
         return dp[n];
     }
 };
 
-int main(){
-    ios_base::sync_with_stdio(0);
-    cout.tie(0);
-    string test = "lintcode";
-    int n = test.size();
-    vector<int> dp(n+1,-1);
-    vector<string> dict = {"lint","de","co"};
-    cout << Solution::word_break(test,dict,dp); // True
+auto main()->int {
+    ios::sync_with_stdio(false);
+    string s = "catsandog";
+    vector<string> wordDict = {"cats","dog","sand","and","cat"};
+    cout << (Solution::wordBreak(s,wordDict)==1 ? "true":"false");
+    return 0;
 }
