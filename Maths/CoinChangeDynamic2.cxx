@@ -1,5 +1,5 @@
 /*Coin change - Dynamic iterative approach.
-Time complexity: O(n*k); where is the target sum and k the number of coin.*/
+Time complexity: O(n*k); where n is the target sum and k the number of coin.*/
 
 #include <iostream>
 #include <vector>
