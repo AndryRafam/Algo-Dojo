@@ -6,7 +6,7 @@ using namespace std;
 #define fast_io ios::sync_with_stdio(false);
 
 template <typename T>
-T kthMostFrequent(vector<T> &arr, int k) {
+inline T kthMostFrequent(vector<T> &arr, int k) {
     priority_queue<pair<int,T>> pq;
     unordered_map<T,int> freq;
     for(auto &x : arr) {
@@ -30,6 +30,6 @@ int main() {
     cin.tie(0);
     vector<string> arr = {"a","b","c","a","b","a"};
     int k; cin >> k;
-    cout << kthMostFrequent(arr,k);
+    cout << kthMostFrequent<string>(arr,k);
     return 0;
 }
