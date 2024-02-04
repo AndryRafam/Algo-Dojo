@@ -1,3 +1,6 @@
+// Given a list of strings, write a function to get the kth most frequently
+// occurring string.
+
 #include <iostream>
 #include <queue>
 #include <unordered_map>
@@ -28,7 +31,13 @@ inline T kthMostFrequent(vector<T> &arr, int k) {
 int main() {
     fast_io;
     cin.tie(0);
-    vector<string> arr = {"a","b","c","a","b","a"};
+    vector<string> arr;
+    int s; cin >> s; // vector size;
+    string t;
+    for(int i(0); i < s; ++i) {
+        cin >> t;
+        arr.push_back(t);
+    }
     int k; cin >> k;
     cout << kthMostFrequent<string>(arr,k);
     return 0;
