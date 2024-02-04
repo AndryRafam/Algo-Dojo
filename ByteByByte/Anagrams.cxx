@@ -1,3 +1,6 @@
+// Given two strings, write a function to determine whether they are
+// anagrams.
+
 #include <iostream>
 #include <string>
 #include <unordered_map>
