@@ -9,16 +9,18 @@
 using namespace std;
 
 #define fast_io ios::sync_with_stdio(false)
+#define omp map<char,int>
+#define f first
+#define s second
 
-template <class T>
-T compress(const T &s) {
-	map<char,int> mp;
+string compress(const string &s) {
+	omp mp;
 	for(auto c : s) {
 		mp[c]++;
 	}
-	T str;
+	string str;
 	for(auto x : mp) {
-		str+=x.first+to_string(x.second);
+		str+=x.f+to_string(x.s);
 	}
 	return(str.size() < s.size() ? str:s);
 }
