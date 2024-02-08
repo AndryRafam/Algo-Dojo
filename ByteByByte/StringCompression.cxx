@@ -11,7 +11,6 @@ using namespace std;
 #define fast_io ios::sync_with_stdio(false)
 #define omp map<char,int>
 #define f first
-#define s second
 
 string compress(const string &s) {
 	omp mp;
