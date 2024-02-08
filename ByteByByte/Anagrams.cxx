@@ -6,7 +6,7 @@
 #include <unordered_map>
 using namespace std;
 
-#define fast_io ios::sync_with_stdio(false);
+#define fast_io ios::sync_with_stdio(false)
 
 template <typename T, typename U>
 inline T isAnagram(const U &a, const U &b) {
