@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define fast_io ios::sync_with_stdio(false);
+#define fast_io ios::sync_with_stdio(false)
 
 int main(int argc, char **argv) {
 	fast_io;
