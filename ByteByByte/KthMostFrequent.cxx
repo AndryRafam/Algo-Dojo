@@ -6,22 +6,25 @@
 #include <unordered_map>
 using namespace std;
 
-#define fast_io ios::sync_with_stdio(false);
+#define fast_io ios::sync_with_stdio(false)
+#define ump unordered_map<string,int>
+#define ppq priority_queue<pair<int,string>>
+#define f first
+#define s second
 
-template <typename T>
-inline T kthMostFrequent(vector<T> &arr, int k) {
-    priority_queue<pair<int,T>> pq;
-    unordered_map<T,int> freq;
+inline string kthMostFrequent(vector<string> &arr, int k) {
+    ump freq;
+    ppq pq;
     for(auto &x : arr) {
         freq[x]++;
     }
     for(auto &y : freq) {
-        pq.push({y.second,y.first});
+        pq.push({y.s,y.f});
     }
-    int t = pq.top().first-k;
+    int t = pq.top().f-k;
     while(!pq.empty()) {
-        if(pq.top().first==t) {
-            return pq.top().second;
+        if(pq.top().f==t) {
+            return pq.top().s;
         }
         pq.pop();
     }
@@ -39,6 +42,6 @@ int main() {
         arr.push_back(t);
     }
     int k; cin >> k;
-    cout << kthMostFrequent<string>(arr,k);
+    cout << kthMostFrequent(arr,k);
     return 0;
 }
