@@ -5,17 +5,22 @@ The test cases are generated so that the answer fits on a 32-bit signed integer.
 Time complexity: O(MxN), where M is the size of s and N is the size of t.
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
+
+#define fast_io ios::sync_with_stdio(false)
+
 
 class Solution{
     public:
     static int numDistinct(string s, string t){
-        int m = s.size();
-        int n = t.size();
-        vector<vector<unsigned int>> dp(m+1,vector<unsigned int>(n+1));
+        int m = s.length();
+        int n = t.length();
+        vector<vector<int>> dp(m+1,vector<int>(n+1));
 
-        // initialize the first row with 1s, as there is always a way to get an empty subsequence from s.
+        // empty string is always a subsequence of any strings.
         for(auto i(0); i <= m; ++i){
             dp[i][0] = 1;
         }
@@ -34,9 +39,10 @@ class Solution{
 };
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    string s = "rabbbit";
-    string t = "rabbit";
+    fast_io;
+    cin.tie(0);
+    string s,t;
+    cin >> s >> t;
     cout << Solution::numDistinct(s,t) << "\n";
     return 0;
 }
