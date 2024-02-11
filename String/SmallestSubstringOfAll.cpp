@@ -32,6 +32,33 @@ class Solution {
     }
 };
 
+/*
+bool isUnique(const string str) {
+    ust <char> freq;
+    for(auto c : str) {
+        if(freq.find(c)!=freq.end()) {
+            return false;
+        }
+        freq.insert(c);
+    }
+    return true;
+}
+
+string getShortestUniqueSubstring(vector<char> arr, string str) {
+    vector<string> res;
+    string t = "";
+    for(size_t i = 0; i < str.length(); ++i) {
+        for(size_t j = arr.size(); j <= str.length()-i; ++j) {
+            t = str.substr(i,j);
+            if(isUnique(t)==1) {
+                return t;
+            }
+        }
+    }
+    return "";
+}
+*/
+
 int main() {
     fast_io;
     cin.tie(0);
