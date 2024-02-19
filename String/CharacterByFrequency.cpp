@@ -2,22 +2,23 @@
 Given a string s, sort it in decreasing order based on the frequency of the characters.
 The frequency of a character is the number of times it appears in the string.
 Return the sorted string. If there are multiple answers, return any of them.
-
-Time complexity: O(N), N is the size of the string.
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 
+#define fast_io ios::sync_with_stdio(false)
+#define pq priority_queue
+
 class Solution{
     public:
-    static string frequencySort(string &s){
-        unordered_map<int,int> freq;
-        for(auto &it : s){
-            freq[it]++;
+    static string frequencySort(string s){
+        unordered_map<char,int> freq;
+        for(auto c : s){
+            freq[c]++;
         }
-        priority_queue<pair<int,int>> maxHeap;
-        for(auto &j : freq){
+        pq<pair<int,char>> maxHeap;
+        for(auto j : freq){
             maxHeap.push({j.second,j.first});
         }
         string res = "";
@@ -34,9 +35,10 @@ class Solution{
 };
 
 int main(){
-    ios_base::sync_with_stdio(false);
+    fast_io;
+    cin.tie(0);
     string s;
     cin >> s;
-    cout << Solution::frequencySort(s) << "\n";
+    cout << Solution::frequencySort(s);
     return 0;
 }
