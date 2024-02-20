@@ -14,34 +14,37 @@ transformation sequence from beginWord to endWord, or -1 if no such sequence exi
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution{
-    public:
-    static int word_ladder(string start, string target, vector<string> word_list){
-        if(find(word_list.begin(),word_list.end(),target)==word_list.end()){
-            return -1;
+#define fast_io ios::sync_with_stdio(false)
+#define ust unordered_set
+
+class Solution {
+public:
+    static int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        if(find(wordList.begin(),wordList.end(),endWord)==wordList.end()){
+            return 0;
         }
         queue<pair<string,int>> q;
-        unordered_set<string> visited = {start};
-        q.push({start,1});
+        ust<string> visited = {beginWord};
+        q.push({beginWord,1});
         while(!q.empty()){
             auto cur = q.front();
             q.pop();
-            if(cur.first==target){
+            if(cur.first==endWord){
                 return cur.second;
             }
-            for(auto &word : word_list){
+            for(auto &word : wordList){
                 if(visited.find(word)==visited.end() and isAdjacent(cur.first,word)){
                     visited.insert(word);
                     q.push({word,cur.second+1});
                 }
             }
         }
-        return -1;
+        return 0;
     }
     private:
     static bool isAdjacent(string w, string s){
         int diff_count = 0;
-        for(auto i(0); i < w.size(); ++i){
+        for(size_t i(0); i < w.size(); ++i){
             if(w[i]!=s[i]){
                 ++diff_count;
             }
@@ -54,11 +57,11 @@ class Solution{
 };
 
 int main(){
-    ios::sync_with_stdio(false);
+    fast_io;
     cin.tie(0);
-    vector<string> word_list = {"hot", "dot", "dog", "lot", "log", "cog"};
-    string start; cin >> start;
-    string target; cin >> target;
-    cout << Solution::word_ladder(start,target,word_list) << "\n";
+    vector<string> wordList = {"hot","dot","dog","lot","log"};
+    string beginWord; cin >> beginWord;
+    string endWord; cin >> endWord;
+    cout << Solution::ladderLength(beginWord,endWord,wordList);
     return 0;
 }
