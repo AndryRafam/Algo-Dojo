@@ -18,7 +18,7 @@ using namespace std;
 #define ust unordered_set
 
 class Solution {
-public:
+    public:
     static int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         if(find(wordList.begin(),wordList.end(),endWord)==wordList.end()){
             return 0;
