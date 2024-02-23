@@ -5,6 +5,7 @@ using namespace std;
 
 #define Red "\x1B[31m"
 #define Reset "\x1B[0m"
+#define pii pair<int,int>
 
 struct Cell{
     int x,y,dist;
@@ -15,7 +16,7 @@ struct Cell{
 
 class Solution{
     private:
-    static bool isValid(vector<vector<int>> &maze, int x, int y){
+    static bool isValid(vector<vector<int>> &maze, size_t x, size_t y){
         if(x < 0 || x >= maze.size() || y < 0 || y >= maze[0].size() || maze[x][y]!=0){
             return false;
         }
@@ -31,13 +32,13 @@ class Solution{
 
         /*here, the first pair<int,int> represents the coordinates of the cell
         and the second pair<int,int> represents the coordinates of the parent cell.*/
-        map<pair<int,int>,pair<int,int>> previous;
+        map<pii,pii> previous;
 
         Cell start{startX,startY,heuristic(startX,startY,targetX,targetY)};
         pq.push(start);
         visited[start.x][start.y] = true;
 
-        vector<pair<int,int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        vector<pii> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
         while(!pq.empty()){
             Cell current = pq.top();
@@ -59,7 +60,7 @@ class Solution{
         // reconstruct the optimal path
         vector<Cell> path;
         if(visited[targetX][targetY]){
-            pair<int,int> current = {targetX,targetY};
+            pii current = {targetX,targetY};
             while(current != make_pair(startX,startY)){
                 path.push_back({current.first,current.second,0});
                 current = previous[current];
