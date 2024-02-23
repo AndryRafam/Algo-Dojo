@@ -9,6 +9,11 @@ using namespace std;
 
 #define fast_io ios::sync_with_stdio(false)
 
+class Solution {
+    public:
+    static void sortByFreq(vector<int> );
+};
+
 class Compare {
     public:
     bool operator()(pair<int,int> a, pair<int,int> b) {
@@ -19,7 +24,7 @@ class Compare {
     }
 };
 
-void sortByFreq(vector<int> arr) {
+void Solution::sortByFreq(vector<int> arr) {
     map<int,int> freq;
     priority_queue<pair<int,int>,vector<pair<int,int>>, Compare> maxheap;
     for(auto x : arr) {
@@ -51,7 +56,7 @@ int main() {
             cin >> x;
             arr.push_back(x);
         }
-        sortByFreq(arr);
+        Solution::sortByFreq(arr);
     }
     return 0;
 }
