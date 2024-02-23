@@ -14,8 +14,7 @@ class Solution {
     static void sortByFreq(vector<int> );
 };
 
-class Compare {
-    public:
+struct Compare {
     bool operator()(pair<int,int> a, pair<int,int> b) {
         if(a.first==b.first) {
             return a.second > b.second;
