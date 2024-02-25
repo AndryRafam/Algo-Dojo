@@ -1,13 +1,7 @@
-/*
-Shortest path in maze using BFS.
-
-Four directions allowed.
-*/
-
 #include <bits/stdc++.h>
 using namespace std;
 
-//const int INF = numeric_limits<int>::max();
+const int INF = INT_MAX;
 
 struct Node{ 
     int x,y,dist;
@@ -15,7 +9,7 @@ struct Node{
 
 class Solution{
     private:
-    static bool isValid(vector<vector<int>> &maze, int x, int y){
+    static bool isValid(vector<vector<int>> &maze, size_t x, size_t y){
        return(x >= 0) && (x < maze.size()) && (y >= 0) && (y < maze[0].size()) && (maze[x][y]==0);
     }
     public:
@@ -28,6 +22,7 @@ class Solution{
         q.push(start);
         // mark starting node as visited
         visited[start.x][start.y] = true;
+        start.dist = 0;
 
         // bfs traversal
         while(!q.empty()){
@@ -50,21 +45,23 @@ class Solution{
                 }
             }
         }
-        //return INF;
-        return -1;
+        return INF;
+        //return -1;
     }
 };
 
 int main(){
     ios_base::sync_with_stdio(false);
     vector<vector<int>> maze = {{1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-				{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1},
-				{1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1},
-				{1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1},
-				{1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1},
-				{1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1},
-				{1,0,1,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1,0,1},
-				{1,0,1,0,1,0,0,0,1,0,0,0,0,0,1,1,1,1,0,1},};
+								{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1},
+								{1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1},
+								{1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1},
+								{1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1},
+								{1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1},
+								{1,0,1,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1,0,1},
+								{1,0,1,0,1,0,0,0,1,0,0,0,0,0,1,1,1,1,0,1},
+                                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1}
+                                };
     
     int M = maze.size();
     int N = maze[0].size();
