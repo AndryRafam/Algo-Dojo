@@ -47,7 +47,6 @@ string frequencySort(string s) {
     while(!maxheap.empty()) {
         int k = maxheap.top().first;
         res+=string(k,maxheap.top().second);
-        k--;
         maxheap.pop();
     }
     return res;
