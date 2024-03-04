@@ -5,18 +5,18 @@ using namespace std;
 
 struct Cell {
     int x,y;
-    double dist;
+    int g_score,h_score;
     bool operator < (const Cell& other) const { // operator overloading
-        return dist > other.dist;
+        return (g_score+h_score) > (other.g_score+other.h_score);
     }
 };
 
-double manhattan(int x1, int y1, int x2, int y2) { // heuristic function distance
+int manhattan(int x1, int y1, int x2, int y2) { // heuristic function distance
     return abs(x1-x2)+abs(y1-y2);
 }
 
 bool isValid(vector<vector<char>> grid, int x, int y, int r, int c) {
-    if(x > 0 && x < r && y > 0 && y < c && (grid[x][y]=='-' || grid[x][y]=='.')) {
+    if(x >= 0 && x < r && y >= 0 && y < c && (grid[x][y]=='-' || grid[x][y]=='.')) {
         return true;
     }
     return false;
@@ -29,7 +29,7 @@ vector<pair<int,int>> aStarSearch(vector<vector<char>> grid, int r, int c, int p
     
     priority_queue<Cell> minHeap;
 
-    Cell start{pacman_r,pacman_c,manhattan(pacman_r,pacman_c,food_r,food_c)};
+    Cell start{pacman_r,pacman_c,0,manhattan(pacman_r,pacman_c,food_r,food_c)};
     minHeap.push(start);
     visited[start.x][start.y] = true;
 
@@ -51,7 +51,8 @@ vector<pair<int,int>> aStarSearch(vector<vector<char>> grid, int r, int c, int p
             int newY = curr.y+dir.second;
             if(isValid(grid,newX,newY,r,c) && !visited[newX][newY]) {
                 visited[newX][newY] = true;
-                Cell next{newX,newY,manhattan(newX,newY,food_r,food_c)};
+                int new_g_score = curr.g_score+1;
+                Cell next{newX,newY,new_g_score,manhattan(newX,newY,food_r,food_c)};
                 minHeap.push(next);
                 parent[newX][newY] = {curr.x,curr.y};
             }
