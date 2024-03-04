@@ -8,9 +8,10 @@ using namespace std;
 #define pii pair<int,int>
 
 struct Cell{
-    int x,y,dist;
-    bool operator < (const Cell& other) const{
-        return dist > other.dist;
+    int x,y;
+    int g_score,h_score;
+    bool operator < (const Cell& other) const { // operator overloading
+        return (g_score+h_score) > (other.g_score+other.h_score);
     }
 };
 
@@ -22,7 +23,7 @@ class Solution{
         }
         return true;
     }
-    static int heuristic(int x1, int y1, int x2, int y2){
+    static int manhattan(int x1, int y1, int x2, int y2) { // heuristic function distance
         return abs(x1-x2)+abs(y1-y2);
     }
     public:
@@ -34,11 +35,11 @@ class Solution{
         and the second pair<int,int> represents the coordinates of the parent cell.*/
         map<pii,pii> previous;
 
-        Cell start{startX,startY,heuristic(startX,startY,targetX,targetY)};
+        Cell start{startX,startY,0,manhattan(startX,startY,targetX,targetY)};
         pq.push(start);
         visited[start.x][start.y] = true;
 
-        vector<pii> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        vector<pii> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};   
 
         while(!pq.empty()){
             Cell current = pq.top();
@@ -51,7 +52,8 @@ class Solution{
                 int newY = current.y+dir.second;
                 if(isValid(maze,newX,newY) && !visited[newX][newY]){
                     visited[newX][newY] = true;
-                    Cell next{newX, newY,heuristic(newX, newY, targetX, targetY)};
+                    int new_g_score = current.g_score+1;
+                    Cell next{newX, newY,new_g_score,manhattan(newX, newY, targetX, targetY)};
                     previous[{newX,newY}] = {current.x,current.y};
                     pq.push(next);
                 }
@@ -74,8 +76,8 @@ class Solution{
 
 int main(){
     ios_base::sync_with_stdio(false);
-    vector<vector<int>> maze =
-    {{1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+    vector<vector<int>> maze = {
+{1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 {1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1},
 {1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,1,1,0,1},
 {1,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1},
